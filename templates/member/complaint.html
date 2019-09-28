@@ -3,6 +3,13 @@
 
 {% block content %}
 <body>
-	<h1>Complaint</h1>
+	<form method="post" enctype="multipart/form-data" >
+		{{form.as_p}}
+		{% csrf_token %}
+		<button type="submit">Upload</button>
+		<input type="submit" value="Submit">
+		
+	</form>
 </body>
 {% endblock %}
+
