@@ -14,10 +14,12 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm):
         model = CustomUser
-        fields = '__all__'
+        fields=('name','username','telephone','flat_no','email')
+
 
 class CustomUserChangeForm(UserChangeForm):
 
     class Meta(UserChangeForm):
         model = CustomUser
-        fields = '__all__'
+        fields = ('name','username','telephone','flat_no','email')
+
