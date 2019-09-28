@@ -2,6 +2,7 @@ from django.forms import ModelForm
 from home.models import visitors
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import CustomUser
+from django import forms 
 
 class visitorsform(ModelForm):
 	class Meta:

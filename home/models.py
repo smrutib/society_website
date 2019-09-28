@@ -10,7 +10,11 @@ class visitors(models.Model):
 class CustomUser(AbstractUser):
 	# add additional fields in here
 	name=models.CharField(max_length=256)
+	username=models.CharField(max_length=100,primary_key=True)
 	password=models.CharField(max_length=100)
 	telephone=models.CharField(max_length=10)
 	flat_no = models.CharField(max_length=20)
-	email = models.EmailField(max_length=100,primary_key=True)
+	email = models.EmailField(max_length=100)
+
+	def __str__(self):
+		return self.name
