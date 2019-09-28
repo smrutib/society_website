@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'member',
+    'home.apps.LoginRegisterConfig',
+    
+
 ]
 
 MIDDLEWARE = [
@@ -118,10 +121,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    '/var/www/static/',
 ]
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
+
+AUTH_USER_MODEL = 'home.CustomUser'
+
+LOGIN_REDIRECT_URL = '/admin/'
+LOGOUT_REDIRECT_URL = 'home'
+
