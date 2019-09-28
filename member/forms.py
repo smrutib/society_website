@@ -6,3 +6,4 @@ class ComplaintForm(ModelForm):
 	class Meta:
 		model = Complaint
 		fields = '__all__'
+
