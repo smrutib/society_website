@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %} Member page {% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'css/member_home.css' %}">
+</head>
+<body>
+<div class="sidenav">
+	<a href="{% url 'member:complaint' %}">Complaint</a>
+	<a href="{% url 'member:request' %}">Request</a>
+
+</div>
+<div id="content" name="content" class ="main">
+	{% block content %}
+	{% endblock %}
+</div>
+</body>
+</html>
