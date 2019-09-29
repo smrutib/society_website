@@ -1,0 +1,16 @@
+{%extends 'member/index.html' %}
+{% block title %} complaint {% endblock %}
+{% load render_table from django_tables2 %}
+{% load bootstrap4 %}
+
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<form method="post">
+		{{form.as_p}}
+		{% csrf_token %}
+		<input type="submit" value="Submit">
+	</form> 
+	<h1>Previous Entries</h1>
+	{% render_table table %}
+
+{% endblock %}

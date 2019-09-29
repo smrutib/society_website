@@ -7,8 +7,12 @@ from django.utils import timezone
 from django.contrib.admin.widgets import AdminDateWidget
 import time 
 from member.models import Complaint
+from member.models import Cheque_details
 from django.forms import ModelForm
-   
+
+from bootstrap_datepicker_plus import DatePickerInput
+from django.forms.widgets import SelectDateWidget
+
 class RequestForm(ModelForm):
 
 	
@@ -60,11 +64,20 @@ class RequestForm(ModelForm):
 
 	    return self.cleaned_data
 
-
-
 class ComplaintForm(ModelForm):
 	class Meta:
 		model = Complaint
 		fields = '__all__'
 
+
+
+class ChequeDetailsForm(ModelForm):
+	#cheque_date=forms.DateField(widget=SelectDateWidget)
+	class Meta:
+		model = Cheque_details
+		fields = ['cheque_date','chequeno','amount','bank']
+		exclude=['user']
+		widgets={'cheque_date' : SelectDateWidget}
+
+		#widget={'cheque_date' : DatePickerInput()}
 

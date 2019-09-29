@@ -1,6 +1,8 @@
 from django.db import models
 from datetime import date
 from django.utils import timezone
+from django.core.validators import RegexValidator,MinValueValidator
+
 #from home.models import CustomUser
 
 # Create your models here.
@@ -51,4 +53,13 @@ class Request(models.Model):
         created=models.BooleanField(default=True)
         inprogress=models.BooleanField(default=False)
         completed=models.BooleanField(default=False)
+
+
+class Cheque_details(models.Model):
+        user = models.CharField(max_length=50)
+        cheque_date=models.DateField( auto_now_add=False)
+        chequeno = models.CharField(max_length=6, validators=[RegexValidator(r'^\d{1,10}$')])
+        amount=models.IntegerField(validators=[MinValueValidator(0, message="Amount should be more than 0")])
+        bank=models.CharField(max_length=200)
+        
 

@@ -37,9 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'member',
+    'member', 
+    'django_tables2',  
+    'bootstrap4',
     'home.apps.LoginRegisterConfig',
-    
 ]
 
 MIDDLEWARE = [
@@ -119,6 +120,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+
+DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap4.html"
 
 
 STATIC_URL = '/static/'
