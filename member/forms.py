@@ -1,38 +1,28 @@
 from django import forms 
+
 from member.models import Request
 from django.forms import ModelForm 
 from datetime import date
 from django.utils import timezone
 from django.contrib.admin.widgets import AdminDateWidget
 import time 
-
-"""class DateInput(forms.DateInput):
-    input_type = 'date'
-
-class DateTimeInput(forms.DateTimeInput):
-	input_type='time'"""
+from member.models import Complaint
+from django.forms import ModelForm
    
 class RequestForm(ModelForm):
 
-	'''name_to_be_addressed=forms.CharField(required=False)
-	new_members_names=forms.CharField(required=False)
-	sales_details=forms.CharField(required=False)
-	cctv_date=forms.DateField(required=False)
-	#cctv_time_from=forms.DateTimeField(required=False)
-	#cctv_time_to=forms.DateTimeField(required=False)'''
+	
 	
 	cctv_time_from=forms.DateTimeField(initial=timezone.now)
 	cctv_time_to=forms.DateTimeField(initial=timezone.now)
 	request=forms.CharField(widget=forms.Textarea)
+	created=forms.BooleanField(initial=True,required=False)
+	inprogress=forms.BooleanField(initial=False,required=False)
+	completed=forms.BooleanField(initial=False,required=False)
 	class Meta:
 		model = Request
 		fields = '__all__'
-		"""widgets = {
-            'cctv_date': DateInput(),
-            'cctv_time_from':DateTimeInput(),
-            'cctv_time_to':DateTimeInput()
-                   
-        }"""
+		
 	def fields_required(self, fields):
 		"""Used for conditionally marking fields as required."""
 		for field in fields:
@@ -69,3 +59,12 @@ class RequestForm(ModelForm):
 	   
 
 	    return self.cleaned_data
+
+
+
+class ComplaintForm(ModelForm):
+	class Meta:
+		model = Complaint
+		fields = '__all__'
+
+

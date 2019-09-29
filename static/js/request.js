@@ -11,8 +11,7 @@ sales_fields.hide();
 var cctv_fields= $("#cctv");
 cctv_fields.hide();
 
-var status_fields= $("#status");
-status_fields.hide();
+
 
 
 $("#id_request_type").change(function() {
