@@ -2,7 +2,56 @@
 {% block title %} complaint {% endblock %}
 
 {% block content %}
-<body>
+{% load static %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ 
+<script src="{% static 'js/request.js' %}"></script>
+ 
+<body >
+
+
 	<h1>Request</h1>
+
+	<div class="container">
+		<form  method="post">
+			
+			{% csrf_token %}
+
+			Flat No:{{form.flatno}}<br>
+			Username:{{form.username}}<br>
+			Choose Request :{{form.request_type}}<br>
+
+			<div id='status' style="display: none;">
+
+				created:{{form.created}}
+				inprogress:{{form.inprogress}}
+				completed:{{form.completed}}
+				
+			</div>
+
+			<div id='addressproof'>
+			Name to be Addressed:{{form.name_to_be_addressed}}<br></div>
+
+			<div id='sales'>
+			new_members_names:{{form.new_members_names}}<br>
+			sales_details:{{form.sales_details}}<br>
+			</div>
+
+			<div id='cctv'>
+			cctv_time_from:{{form.cctv_time_from}}&nbsp;&nbsp;cctv_time_to:{{form.cctv_time_to}}<br>
+			</div>
+
+			request:{{form.request}}<br>
+
+			<input type="submit" class="btn btn-primary" value="Submit">
+				
+		</form>	
+</div>
+
+
+
+
 </body>
+
 {% endblock %}

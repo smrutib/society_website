@@ -1,10 +1,12 @@
 from django.db import models
+from datetime import date
+from django.utils import timezone
 #from home.models import CustomUser
 
 # Create your models here.
 class Request(models.Model):
 
-	request_date=models.DateField( auto_now_add=False)
+	request_date=models.DateField(auto_now_add=True)
 	flatno=models.CharField(max_length=5)
 	username=models.CharField(max_length=200)
 	#username= models.ForeignKey(CustomUser, on_delete=models.CASCADE)
@@ -12,7 +14,7 @@ class Request(models.Model):
         ('NOC', 'NOC'),
         ('AddressProof', 'AddressProof'),
         ('SalesAgreement', 'SalesAgreement'),
-        ('CCTV', 'CCTv'),
+        ('CCTV', 'CCTV'),
         ('Other','Other')
         ]
 	request_type=models.CharField(
@@ -20,8 +22,12 @@ class Request(models.Model):
         choices=request_choices,
         default='NOC',
         )
-	name_to_be_addressed=models.CharField(max_length=100)
-	new_members_names=models.CharField(max_length=200)
-	sales_details=models.CharField(max_length=300)
-	cctv_from=models.DateTimeField()
-	cctv_to=models.DateTimeField()
+	name_to_be_addressed=models.CharField(max_length=100,blank=True)
+	new_members_names=models.CharField(max_length=200,blank=True)
+	sales_details=models.CharField(max_length=300,blank=True)
+	cctv_time_from=models.DateTimeField(blank=True,default=timezone.now)
+	cctv_time_to=models.DateTimeField(blank=True,default=timezone.now)
+	request=models.CharField(max_length=500,blank=True)
+	created=models.BooleanField(default=True)
+	inprogress=models.BooleanField(default=False)
+	completed=models.BooleanField(default=False)
