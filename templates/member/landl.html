@@ -1,0 +1,13 @@
+{%extends 'member/index.html' %}
+{% block title %} leave and license  {% endblock %}
+
+{% block content %}
+<body>
+	<form method="post" enctype="multipart/form-data" >
+		{{form.as_p}}
+		{% csrf_token %}
+		<input type="submit" value="Submit">
+		
+	</form>
+</body>
+{% endblock %}

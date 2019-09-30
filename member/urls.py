@@ -7,4 +7,5 @@ urlpatterns = [
 	path('complaint',views.complaint,name='complaint'),
 	path('request',views.request,name='request'),
 	path('cheque_details',views.cheque_details,name='cheque_details'),
+	path('landl',views.landl,name='landl'),
 ]
