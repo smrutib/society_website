@@ -8,7 +8,7 @@ from django.core.validators import RegexValidator,MinValueValidator
 # Create your models here.
 class Complaint(models.Model):
 
-        complaint_date=models.DateField( auto_now_add=False)
+        complaint_date=models.DateField( auto_now_add=True)
         flatno=models.CharField(max_length=5)
         username=models.CharField(max_length=200)
         #username= models.ForeignKey(CustomUser, on_delete=models.CASCADE)
@@ -30,15 +30,15 @@ class Complaint(models.Model):
 
 class Request(models.Model):
 
-
+        
         request_date=models.DateField(auto_now_add=True)
         flatno=models.CharField(max_length=5)
         username=models.CharField(max_length=200)
         #username= models.ForeignKey(CustomUser, on_delete=models.CASCADE)
         request_choices = [
         ('NOC', 'NOC'),
-        ('AddressProof', 'AddressProof'),
-        ('SalesAgreement', 'SalesAgreement'),
+        ('AddressProof', 'AddressProof(Passport)'),
+        ('SalesAgreement', 'SalesAgreement(NOC)'),
         ('CCTV', 'CCTV'),
         ('Other','Other')
         ]
@@ -53,13 +53,26 @@ class Request(models.Model):
         created=models.BooleanField(default=True)
         inprogress=models.BooleanField(default=False)
         completed=models.BooleanField(default=False)
+        bank_format = models.FileField(upload_to='request_sales_docs/',default="noimage.jpg")
 
 
 class Cheque_details(models.Model):
+        entry_date=models.DateField(auto_now_add=True)
         user = models.CharField(max_length=50)
         cheque_date=models.DateField( auto_now_add=False)
         chequeno = models.CharField(max_length=6, validators=[RegexValidator(r'^\d{1,10}$')])
         amount=models.IntegerField(validators=[MinValueValidator(0, message="Amount should be more than 0")])
         bank=models.CharField(max_length=200)
+        remarks=models.CharField(max_length=500,default="none")
         
 
+class LandL(models.Model):
+
+        landl_date=models.DateField( auto_now_add=True)
+        flatno=models.CharField(max_length=5)
+        username=models.CharField(max_length=200)
+        from_date=models.DateField( auto_now_add=False)
+        to_date=models.DateField( auto_now_add=False)
+        #username= models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+        agreement= models.FileField(upload_to='landl_docs_agreement/',default="noimage.jpg")
+        police_ver = models.FileField(upload_to='landl_docs_police/',default="noimage.jpg")

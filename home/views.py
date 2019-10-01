@@ -13,7 +13,11 @@ def visitors(request):
 	if request.method == 'POST':
 		form=forms.visitorsform(request.POST)
 		if form.is_valid():
-			record=form.save()
+			s = form.cleaned_data['wing']
+			t=form.cleaned_data['flat']
+			st=s+t
+			record=form.save(commit=False)
+			record.flatno=st
 			record.save()
 			form=forms.visitorsform()
 	else:
