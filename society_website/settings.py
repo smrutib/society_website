@@ -37,11 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'member', 
     'django_tables2',  
     'bootstrap4',
     'home.apps.LoginRegisterConfig',
-]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,6 +127,7 @@ DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap4.html"
 
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/var/www/static/',

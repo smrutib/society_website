@@ -1,5 +1,6 @@
 from django import forms 
 
+
 from member.models import Request
 from django.forms import ModelForm 
 from datetime import date
@@ -297,3 +298,4 @@ class LandLForm(ModelForm):
 		fields = ['from_date','to_date','agreement','police_ver']
 		exclude=['username','flatno']
 		widgets={'from_date' : SelectDateWidget,'to_date' : SelectDateWidget}
+

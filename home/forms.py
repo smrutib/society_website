@@ -1,7 +1,14 @@
 from django.forms import ModelForm
+
 from home.models import visitors
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import CustomUser
+from django import forms 
+
+
+from home.models import visitors,Quotation
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from .models import CustomUser 
 from django import forms 
 
 class visitorsform(ModelForm):
@@ -12,6 +19,7 @@ class visitorsform(ModelForm):
 
 
 class CustomUserCreationForm(UserCreationForm):
+
 
 	wing_choices = [
 	('A', 'A'),
@@ -126,4 +134,11 @@ class CustomUserChangeForm(UserChangeForm):
 		fields = ('name','username','telephone','flat_no','email')
 		exclude=['flat_no']
 
+
+    
+
+class quotationform(ModelForm):
+	class Meta:
+		model=Quotation
+		fields='__all__'
 
