@@ -32,18 +32,18 @@ def request(request):
 
 
 def cheque_details(request):
+	user = User.objects.get(username=username)
+	print(user)
 	if request.method == 'POST':
 		form = forms.ChequeDetailsForm(request.POST)
 		if form.is_valid():
 			record =form.save(commit=False)
-			#record.user = request.user
-			record.user = 'sb'
+			record.user = user
 			record.save()
 			form = forms.ChequeDetailsForm()
 	else:
 		form = forms.ChequeDetailsForm()
-	
-	table = Cheque_details_table(Cheque_details.objects.filter(user = 'sb'))
+	table = Cheque_details_table(Cheque_details.objects.filter(user = user))
 
 	context = {'form':form , 'table':table}	
 	return render(request,'member/cheque_details.html',context)
