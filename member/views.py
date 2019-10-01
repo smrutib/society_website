@@ -51,24 +51,23 @@ def request(request):
 
 
 def cheque_details(request):
+	#user = User.objects.get(username=username)
+	#print(user)
 	if request.method == 'POST':
 		form = forms.ChequeDetailsForm(request.POST)
 		if form.is_valid():
 			s = form.cleaned_data['wing']
 			t=form.cleaned_data['flat']
 			st=s+t
-			record =form.save(commit=False)
-			#record.user = request.user
-			
+			record =form.save(commit=False)			
 			record.user=request.user.username
 			record.flatno=st
 			record.save()
 			form = forms.ChequeDetailsForm()
 	else:
 		form = forms.ChequeDetailsForm()
-	
-	table = Cheque_details_table(Cheque_details.objects.filter(user = request.user.username))
 
+	table = Cheque_details_table(Cheque_details.objects.filter(user = request.user.username))
 	context = {'form':form , 'table':table}	
 	return render(request,'member/cheque_details.html',context)
 
