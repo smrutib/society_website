@@ -15,6 +15,13 @@ class CustomUser(AbstractUser):
 	telephone=models.CharField(max_length=10)
 	flat_no = models.CharField(max_length=20)
 	email = models.EmailField(max_length=100)
+class Quotation(models.Model):
+	company_name=models.CharField(max_length=50)
+	telephone=models.CharField(max_length=10)
+	email=models.CharField(max_length=20)
+	description=models.CharField(max_length=100)
+	pdf=models.FileField(upload_to='quotations/pdfs/')
 
-	def __str__(self):
-		return self.name
+
+def __str__(self):
+	return self.name

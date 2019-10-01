@@ -4,8 +4,8 @@ from django.shortcuts import render
 # Create your views here.
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
-
-from .forms import CustomUserCreationForm
+from home import forms
+from .forms import CustomUserCreationForm,quotationform
 # Create your views here.
 def home(request):
 	return render(request,"home/homepage.html")
@@ -24,3 +24,15 @@ class SignUpView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'home/signup.html'
+
+def quotation_upload(request):
+	if request.method == 'POST':
+		form=forms.quotationform(request.POST,request.FILES)
+		if form.is_valid():
+			record=form.save()
+			record.save()
+			form=forms.quotationform()
+
+	else:
+		form=forms.quotationform()
+	return render(request, "home/quotation.html",{'form':form})
