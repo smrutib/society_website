@@ -6,6 +6,7 @@
 {% block content %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 	<form method="post">
+		Flat No:{{form.wing}}{{form.flat}}
 		{{form.as_p}}
 		{% csrf_token %}
 		<input type="submit" value="Submit">

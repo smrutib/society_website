@@ -4,6 +4,7 @@
 {% block content %}
 <body>
 	<form method="post" enctype="multipart/form-data" >
+		Flat No:{{form.wing}}{{form.flat}}
 		{{form.as_p}}
 		{% csrf_token %}
 		<input type="submit" value="Submit">
