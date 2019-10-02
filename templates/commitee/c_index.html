@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %} Commitee page {% endblock %}</title>
+	<link rel="stylesheet" href="{% static 'css/member_home.css' %}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="{% static 'js/request.js' %}"></script>
+       
+</head>
+<body>
+	
+<div class="sidenav">
+	
+	<a href="{% url 'commitee:complaint' %}">Complaint</a>
+	<a href="{% url 'commitee:request' %}">Request</a>
+	<a href="{% url 'commitee:cheque_details' %}">Cheque Details</a>
+	<a href="{% url 'commitee:landl' %}">Leave & License</a>
+
+
+</div>
+<div id="content" name="content" class ="main">
+	{% block content %}
+	{% endblock %}
+</div>
+</body>
+</html>

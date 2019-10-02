@@ -13,7 +13,6 @@ class CustomUserAdmin(UserAdmin):
     list_display = ['name','username','password','telephone','flat_no','email']
 
 admin.site.register(CustomUser, CustomUserAdmin)
-
 admin.site.register(visitors)
 admin.site.register(Quotation)
 

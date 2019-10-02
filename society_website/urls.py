@@ -24,4 +24,7 @@ urlpatterns = [
     path('',views.home,name="home"),
     path('home/',include('home.urls')),
     path('home/', include('django.contrib.auth.urls')),
+    path('commitee/',include('commitee.urls')),
+
+]
 

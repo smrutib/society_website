@@ -51,8 +51,6 @@ def request(request):
 
 
 def cheque_details(request):
-	user = User.objects.get(username=username)
-	print(user)
 	if request.method == 'POST':
 		form = forms.ChequeDetailsForm(request.POST)
 		if form.is_valid():
