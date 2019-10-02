@@ -1,4 +1,146 @@
 {% extends 'commitee/c_index.html' %}
 
 	{% block content %}
+
+<h1>Sales Agreement (NOC)</h1>
+
+
+<table>
+	<tr>
+		<th>Date Of Issue</th>
+		<th>Flat No</th>
+		<th>New Member Names</th>
+		<th>Sales Details</th>
+		<th>Bank Format</th>
+		<th>Remarks</th>
+		<th>Update Progress</th>
+		<th>Update Completed</th>
+
+	</tr>
+	{% for r in sale_requests %}
+	<tr>
+		<td>{{ r.request_date }}</td>
+		<td>{{r.flatno}}</td>
+		<td>{{r.new_members_names}}</td>
+		<td>{{r.sales_details}}</td>
+		<td>{{r.bank_format}}</td>
+		<td>{{r.request}}</td>
+		<td><a href="{% url 'commitee:sales_request_progress' r.id %}">Click</a></td>
+		<td><a href="{% url 'commitee:sales_request_complete' r.id %}">Click</a></td>
+
+	</tr>
+
+	{% endfor %}
+
+</table>
+
+<h1>Address Proof for Passport </h1>
+
+
+<table>
+	<tr>
+		<th>Date Of Issue</th>
+		<th>Flat No</th>
+		<th>Name to be Addressed</th>
+		<th>Remarks</th>
+		<th>Update Progress</th>
+		<th>Update Completed</th>
+
+	</tr>
+	{% for r in Addp_requests %}
+	<tr>
+		<td>{{ r.request_date }}</td>
+		<td>{{r.flatno}}</td>
+		<td>{{r.name_to_be_addressed}}</td>
+		<td>{{r.request}}</td>
+		<td><a href="{% url 'commitee:Addp_request_progress' r.id %}">Click</a></td>
+		<td><a href="{% url 'commitee:Addp_request_complete' r.id %}">Click</a></td>
+
+	</tr>
+
+	{% endfor %}
+
+</table>
+
+
+<h1>CCTV Request</h1>
+
+<table>
+	<tr>
+		<th>Date Of Issue</th>
+		<th>Flat No</th>
+		<th>From</th>
+		<th>To</th>
+		<th>Remarks</th>
+		<th>Update Progress</th>
+		<th>Update Completed</th>
+
+	</tr>
+	{% for r in cctv_requests %}
+	<tr>
+		<td>{{ r.request_date }}</td>
+		<td>{{r.flatno}}</td>
+		<td>{{r.cctv_time_from}}</td>
+		<td>{{r.cctv_time_to}}</td>
+		<td>{{r.request}}</td>
+		<td><a href="{% url 'commitee:cctv_request_progress' r.id %}">Click</a></td>
+		<td><a href="{% url 'commitee:cctv_request_complete' r.id %}">Click</a></td>
+
+	</tr>
+
+	{% endfor %}
+
+</table>
+
+<h1>NOC</h1>
+
+<table>
+	<tr>
+		<th>Date Of Issue</th>
+		<th>Flat No</th>
+		<th>Remarks</th>
+		<th>Update Progress</th>
+		<th>Update Completed</th>
+
+	</tr>
+	{% for r in noc_requests %}
+	<tr>
+		<td>{{ r.request_date }}</td>
+		<td>{{r.flatno}}</td>
+		<td>{{r.request}}</td>
+		<td><a href="{% url 'commitee:noc_request_progress' r.id %}">Click</a></td>
+		<td><a href="{% url 'commitee:noc_request_complete' r.id %}">Click</a></td>
+
+	</tr>
+
+	{% endfor %}
+
+</table>
+
+<h1>Other </h1>
+
+<table>
+	<tr>
+		<th>Date Of Issue</th>
+		<th>Flat No</th>
+		<th>Remarks</th>
+		<th>Update Progress</th>
+		<th>Update Completed</th>
+
+	</tr>
+	{% for r in other_requests %}
+	<tr>
+		<td>{{ r.request_date }}</td>
+		<td>{{r.flatno}}</td>		
+		<td>{{r.request}}</td>
+		<td><a href="{% url 'commitee:other_request_progress' r.id %}">Click</a></td>
+		<td><a href="{% url 'commitee:other_request_complete' r.id %}">Click</a></td>
+
+	</tr>
+
+	{% endfor %}
+
+</table>
+
+
 	{% endblock %}

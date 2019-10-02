@@ -58,6 +58,7 @@ class Request(models.Model):
 
 class Cheque_details(models.Model):
         entry_date=models.DateField(auto_now_add=True)
+        flatno=models.CharField(max_length=4)
         user = models.CharField(max_length=50)
         cheque_date=models.DateField( auto_now_add=False)
         chequeno = models.CharField(max_length=6, validators=[RegexValidator(r'^\d{1,10}$')])

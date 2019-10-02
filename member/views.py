@@ -44,7 +44,8 @@ def request(request):
 			form = forms.RequestForm()
 	else:
 		form = forms.RequestForm()
-	table = (Request.objects.filter(username =request.user.username ))
+
+	table = (Request.objects.filter(username =request.user.username )).order_by('request_date')
 
 	context = {'form':form , 'table':table}	
 	return render(request,'member/request.html',context)
