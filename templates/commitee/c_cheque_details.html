@@ -1,4 +1,31 @@
 {% extends 'commitee/c_index.html' %}
 
 	{% block content %}
+
+<h1>Cheque Deatils </h1>
+<table>
+
+	<th>Date of entry</th>
+	<th>Flat No</th>
+	<th>Start Date</th>
+	<th>End Date</th>
+	<th>Agreement</th>
+	<th>Police Verification Document</th>
+
+	{% for l in lls %}
+	<td>{{ l.landl_date }}</td>
+	<td>{{ l.flatno }}</td>
+	<td>{{ l.from_date }}</td>
+	<td>{{ l.to_date }}</td>
+	<td>{{ l.agreement }}</td>
+	<td>{{ l.police_ver }}</td>
+
+	{% endfor %}
+
+</table>
+
+
+
+
+
 	{% endblock %}
