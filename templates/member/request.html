@@ -10,6 +10,7 @@
  
 <script src="{% static 'js/request.js' %}"></script>
  <link rel="stylesheet" href="{% static 'css/request_statusbar.css' %}">
+ <link rel="stylesheet" type="text/css" href="{% static 'css/request_table_style.css' %}">
 
  
 <body >
@@ -60,7 +61,7 @@
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
-		<th>Request Made</th>
+		<th>Request Description</th>
 		<th>Status</th>
 		
 	</tr>
@@ -74,7 +75,7 @@
 			<ul>
 				<li><b>New Member Names:</b>{{r.new_members_names}}</li>
 				<li><b>Details:</b>{{r.sales_details}}</li>
-				<li><b>Format:</b>{{r.bank_format}}</li>
+				<li><b>Format:</b><a href="{{r.bank_format.url}}" class="btn btn-primary btn-sm" target="_blank">Download</a></li>
 				<li><b>Remarks:</b>{{r.request}}</li>
 			</ul>
 		</td>

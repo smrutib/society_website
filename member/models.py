@@ -24,7 +24,7 @@ class Complaint(models.Model):
         default='Other',
         )
         description=models.CharField(max_length=500)
-        complain_img = models.ImageField(upload_to='complaint_images/', default="noimage.jpg") 
+        complain_img = models.ImageField(upload_to='complaint_images/',null=True,blank=True) 
 
 
 
@@ -53,12 +53,12 @@ class Request(models.Model):
         created=models.BooleanField(default=True)
         inprogress=models.BooleanField(default=False)
         completed=models.BooleanField(default=False)
-        bank_format = models.FileField(upload_to='request_sales_docs/',default="noimage.jpg")
+        bank_format = models.FileField(upload_to='request_bank_format/')
 
 
 class Cheque_details(models.Model):
         entry_date=models.DateField(auto_now_add=True)
-        flatno=models.CharField(max_length=4)
+        flatno=models.CharField(max_length=5)
         user = models.CharField(max_length=50)
         cheque_date=models.DateField( auto_now_add=False)
         chequeno = models.CharField(max_length=6, validators=[RegexValidator(r'^\d{1,10}$')])
@@ -75,5 +75,5 @@ class LandL(models.Model):
         from_date=models.DateField( auto_now_add=False)
         to_date=models.DateField( auto_now_add=False)
         #username= models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-        agreement= models.FileField(upload_to='landl_docs_agreement/',default="noimage.jpg")
-        police_ver = models.FileField(upload_to='landl_docs_police/',default="noimage.jpg")
+        agreement= models.FileField(upload_to='landl_docs_agreement/')
+        police_ver = models.FileField(upload_to='landl_docs_police/')

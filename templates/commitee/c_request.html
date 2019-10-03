@@ -23,7 +23,7 @@
 		<td>{{r.flatno}}</td>
 		<td>{{r.new_members_names}}</td>
 		<td>{{r.sales_details}}</td>
-		<td>{{r.bank_format}}</td>
+		<td><a href="{{r.bank_format.url}}" class="btn btn-primary btn-sm" target="_blank">Download</a></td>
 		<td>{{r.request}}</td>
 		<td><a href="{% url 'commitee:sales_request_progress' r.id %}">Click</a></td>
 		<td><a href="{% url 'commitee:sales_request_complete' r.id %}">Click</a></td>

@@ -32,13 +32,13 @@ def request(request):
 
 def cheque_details(request):
 
-	cheques=Cheque_details.objects.all().order_by(entry_date)
+	cheques=Cheque_details.objects.all().order_by('entry_date')
 
 	return render(request,'commitee/c_cheque_details.html',{'cheques':cheques})
 
 def landl(request):
 
-	lls=LandL.objects.all().order_by(landl_date)
+	lls=LandL.objects.all().order_by('landl_date')
 
 	return render(request,'commitee/c_landl.html',{'lls':lls})
 

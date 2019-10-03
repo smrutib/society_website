@@ -17,7 +17,14 @@
 		<td>{{c.complaint_date }}</td>
 		<td>{{c.flatno}}</td>
 		<td>{{c.description}}</td>
-		<td>{{c.complain_img}}</td>
+		<td>
+			{% if c.complain_img %}
+			<img src="{{ c.complain_img.url }}" alt="No Image" style="width:50px;">
+			{% else %}
+			<span class="text-muted">No Image</span>
+			{% endif %}
+		</td>
+
 	</tr>
 
 	{% endfor %}
@@ -39,7 +46,13 @@
 		<td>{{c.complaint_date }}</td>
 		<td>{{c.flatno}}</td>
 		<td>{{c.description}}</td>
-		<td>{{c.complain_img}}</td>
+		<td>
+			{% if c.complain_img %}
+			<img src="{{ c.complain_img.url }}" alt="No Image" style="width:50px;">
+			{% else %}
+			<span class="text-muted">No Image</span>
+			{% endif %}
+		</td>
 	</tr>
 
 	{% endfor %}
@@ -61,7 +74,13 @@
 		<td>{{c.complaint_date }}</td>
 		<td>{{c.flatno}}</td>
 		<td>{{c.description}}</td>
-		<td>{{c.complain_img}}</td>
+		<td>
+			{% if c.complain_img %}
+			<img src="{{ c.complain_img.url }}" alt="No Image" style="width:50px;">
+			{% else %}
+			<span class="text-muted">No Image</span>
+			{% endif %}
+		</td>
 	</tr>
 
 	{% endfor %}
@@ -82,7 +101,13 @@
 		<td>{{c.complaint_date }}</td>
 		<td>{{c.flatno}}</td>
 		<td>{{c.description}}</td>
-		<td>{{c.complain_img}}</td>
+		<td>
+			{% if c.complain_img %}
+			<img src="{{ c.complain_img.url }}" alt="No Image" style="width:50px;">
+			{% else %}
+			<span class="text-muted">No Image</span>
+			{% endif %}
+		</td>
 	</tr>
 
 	{% endfor %}
