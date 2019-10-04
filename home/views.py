@@ -25,9 +25,16 @@ def visitors(request):
 	return render(request, "home/visitors.html",{'form':form})
 	
 class SignUpView(CreateView):
-    form_class = CustomUserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'home/signup.html'
+	form_class = CustomUserCreationForm
+	success_url = reverse_lazy('login')
+	template_name = 'home/signup.html'
+
+	def form_valid(self,form):
+		s=form.cleaned_data['wing']
+		t=form.cleaned_data['flat']
+		st=s+t
+		form.instance.flat_no=st
+		return super().form_valid(form)
 
 def quotation_upload(request):
 	if request.method == 'POST':
