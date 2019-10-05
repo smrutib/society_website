@@ -15,6 +15,7 @@ class CustomUser(AbstractUser):
 	telephone=models.CharField(max_length=10)
 	flat_no = models.CharField(max_length=20)
 	email = models.EmailField(max_length=100)
+	
 
 class Quotation(models.Model):
 	company_name=models.CharField(max_length=50)

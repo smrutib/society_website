@@ -3,6 +3,11 @@ from member.models import Request,Complaint
 from django.http import HttpResponseRedirect  
 from django.urls import reverse
 from member.models import Complaint,Cheque_details,LandL
+from django.http import HttpResponse
+from django.views.generic import View
+
+from society_website.utils import render_to_pdf
+
 # Create your views here.
 def index(request):
 	
@@ -105,3 +110,11 @@ def other_request_complete(request,i):
 	Request.objects.filter(id=i).update(completed=True)
 
 	return HttpResponseRedirect(reverse('commitee:request'))
+
+
+
+class GeneratePdf(View):
+	def get(self, request, *args, **kwargs):
+		cheques=Cheque_details.objects.all().order_by('entry_date')
+		pdf = render_to_pdf('commitee/c_cheque_details.html',{'cheques':cheques})
+		return HttpResponse(pdf, content_type='application/pdf')

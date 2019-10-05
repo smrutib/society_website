@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, re_path
 from commitee import views
+from .views import GeneratePdf
 app_name='commitee'
 urlpatterns = [
 	re_path(r'^$',views.index,name='index'),
@@ -18,5 +19,7 @@ urlpatterns = [
 	path('cother/<int:i>/',views.other_request_complete,name='other_request_complete'),
 	path('pnoc/<int:i>/',views.noc_request_progress,name='noc_request_progress'),
 	path('cnoc/<int:i>/',views.noc_request_complete,name='noc_request_complete'),
+	path('pdfdownload', GeneratePdf.as_view(),name='htmltopdf'),
+
 
 ]
