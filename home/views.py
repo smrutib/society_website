@@ -62,3 +62,5 @@ def login_success(request):
     else:
         return redirect("commitee/option.html")
 
+def test(request):
+	return render(request,"home/test.html")
