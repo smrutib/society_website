@@ -59,8 +59,10 @@ class CustomUserCreationForm(UserCreationForm):
 
 	]
 	flat=forms.CharField(max_length=3,
-	widget=forms.Select(choices=flat_choices),
-	)
+	widget=forms.Select(choices=flat_choices),)
+	rights=forms.CharField(max_length=10 ,widget = forms.HiddenInput(),required=False)
+		
+	#rights = forms.CharField(widget=forms.HiddenInput(),initial="normal")
 	class Meta(UserCreationForm):
 		model = CustomUser
 		fields=('name','username','telephone','flat_no','email')
@@ -119,10 +121,11 @@ class CustomUserChangeForm(UserChangeForm):
 	flat=forms.CharField(max_length=3,
 	widget=forms.Select(choices=flat_choices),
 	)
+	rights=forms.CharField(max_length=10 ,widget = forms.HiddenInput(),required=False)
 	class Meta(UserChangeForm):
 		model = CustomUser
 		fields = ('name','username','telephone','flat_no','email')
-		exclude=['flat_no']
+		exclude=['flat_no','rights']
 
 
 

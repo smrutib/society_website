@@ -137,6 +137,7 @@ MEDIA_URL = '/media/'
 
 AUTH_USER_MODEL = 'home.CustomUser'
 
-LOGIN_REDIRECT_URL = '/member/'
+LOGIN_REDIRECT_URL = 'login_success'
+#LOGIN_REDIRECT_URL = '/member/'
 LOGOUT_REDIRECT_URL = 'home'
 

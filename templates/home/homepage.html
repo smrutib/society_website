@@ -13,12 +13,72 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
 
 </head>
 {% block content %}
 
-<div class="jumbotron">
-  <h1>carousel</h1>
+<!--
+        Home Slider
+        ==================================== -->
+    
+    <section id="slider">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      
+        <!-- Indicators bullet -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        </ol>
+        <!-- End Indicators bullet -->        
+        
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          
+          <!-- single slide -->
+          <div class="item active" style="background-image: url(img1/banner.jpg);">
+            <div class="carousel-caption">
+              <h2 data-wow-duration="700ms" data-wow-delay="500ms" class="wow bounceInDown animated">Meet<span> Brandi</span>!</h2>
+              <h3 data-wow-duration="1000ms" class="wow slideInLeft animated"><span class="color">/creative</span> one page template.</h3>
+              <p data-wow-duration="1000ms" class="wow slideInRight animated">We are a team of professionals</p>
+              
+              <ul class="social-links text-center">
+                <li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
+                <li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
+                <li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
+                <li><a href=""><i class="fa fa-dribbble fa-lg"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- end single slide -->
+          
+          <!-- single slide -->
+          <div class="item" style="background-image: url(static/img1/banner.jpg);">
+            <div class="carousel-caption">
+              <h2 data-wow-duration="500ms" data-wow-delay="500ms" class="wow bounceInDown animated">Meet<span> Team</span>!</h2>
+              <h3 data-wow-duration="500ms" class="wow slideInLeft animated"><span class="color">/creative</span> one page template.</h3>
+              <p data-wow-duration="500ms" class="wow slideInRight animated">We are a team of professionals</p>
+              
+              <ul class="social-links text-center">
+                <li><a href=""><i class="fa fa-twitter fa-lg"></i></a></li>
+                <li><a href=""><i class="fa fa-facebook fa-lg"></i></a></li>
+                <li><a href=""><i class="fa fa-google-plus fa-lg"></i></a></li>
+                <li><a href=""><i class="fa fa-dribbble fa-lg"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <!-- end single slide -->
+          
+        </div>
+        <!-- End Wrapper for slides -->
+        
+      </div>
+    </section>
+    
+        <!--
+        End Home SliderEnd
+        ==================================== -->
+<!--
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -45,7 +105,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-</div>
+-->
 
 <div style="background-image: url(static/back.jpg);background-repeat: repeat;m">
 <div style="display: inline;">
@@ -162,6 +222,10 @@
 <div style="padding-bottom: 20px;" >
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.4188989390886!2d72.83412411437895!3d19.22056705240822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b1331898635f%3A0x73f7c7d50021a1da!2sSage%20Grove!5e0!3m2!1sen!2sin!4v1569899373269!5m2!1sen!2sin" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 </div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
 {% endblock %}
 

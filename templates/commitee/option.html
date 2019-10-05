@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load bootstrap4 %}
+
+<html>
+<head>
+  <title>option</title>
+</head>
+<body>
+<div style="background-image: url(static/back.jpg);background-repeat: repeat;m">
+<div style="display: inline;">
+<div class="row" style="padding-top:5%;flex-wrap: nowrap; margin-right: 0px;margin-left: 0px;padding-bottom: 5%"  >
+  <div class="column">
+    <div class="flip-box" style="margin-left: 5%">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+      <img src="static/member1.png" alt="member" style="width:150px;height:150px;margin-left:70px;margin-right: 30px;margin-top: 30px">
+    </div>
+    <div class="flip-box-back">
+      <div class="text">
+      <h4> Member </h4>
+      <a href="{% url 'member:index' %}"type="button" class="btn btn-danger">View</a>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+  <div class="column">
+    <div class="flip-box" style="margin-left: 5%">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+      <img src="static/re.png" alt="member" style="width:150px;height:150px;margin-left:70px;margin-right: 30px;margin-top: 30px">
+    </div>
+    <div class="flip-box-back">
+      <div class="text">
+      <h4> Commitee </h4>
+      <a href="{% url 'commitee:index' %}"type="button" class="btn btn-danger">View</a>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>	admin</title>
+	</head>
+	<body>
+	
+	
+
+<table>
+<tr>
+	<th>UserName</th>
+	<th>Flat No</th>
+	<th>Email</th>
+</tr>
+	{% for m in mem %}
+<tr>
+	<td>{{ m.username }}</td>
+	<td>{{ m.flatno }}</td>
+	<td>{{ m.email }}</td>
+	<td><a href="{% url 'commitee:makeadmin' m.username %}" type="button" class="btn btn-danger">Commitee</a></td>
+	<td><a href="{% url 'commitee:makenormal' m.username %}" type="button" class="btn btn-danger">Normal</a></td>
+</tr>
+	{% endfor %}
+
+</table>
+
+</body>
+</html>	
+	

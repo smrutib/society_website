@@ -1,14 +1,17 @@
 from django.shortcuts import render
+from home.models import CustomUser
 from member.models import Request,Complaint
 from django.http import HttpResponseRedirect  
 from django.urls import reverse
 from member.models import Complaint,Cheque_details,LandL
+<<<<<<< HEAD
 from django.http import HttpResponse
 from django.views.generic import View
 
 from society_website.utils import render_to_pdf
 
 # Create your views here.
+
 def index(request):
 	
 	return render(request,'commitee/c_index.html')
@@ -42,11 +45,30 @@ def cheque_details(request):
 	return render(request,'commitee/c_cheque_details.html',{'cheques':cheques})
 
 def landl(request):
-
 	lls=LandL.objects.all().order_by('landl_date')
 
 	return render(request,'commitee/c_landl.html',{'lls':lls})
 
+def option(request):
+
+	return render(request,'commitee/option.html')
+
+def admin(request):
+	mem=CustomUser.objects.all()
+	return render(request,'commitee/admin.html',{'mem':mem})
+
+def makeadmin(request, pk):
+    r = CustomUser.objects.get(pk=pk)
+    r.rights="commitee"
+    r.save()
+    return HttpResponseRedirect(reverse('commitee:admin'))
+
+def makenormal(request, pk):
+    r = CustomUser.objects.get(pk=pk)
+    r.rights="normal"
+    r.save()
+    return HttpResponseRedirect(reverse('commitee:admin'))
+	
 def sales_request_progress(request,i):
 
 	Request.objects.filter(id=i).update(inprogress=True)
