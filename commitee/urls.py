@@ -8,4 +8,8 @@ urlpatterns = [
 	path('request',views.request,name='request'),
 	path('cheque_details',views.cheque_details,name='cheque_details'),
 	path('landl',views.landl,name='landl'),
+	path('option',views.option,name='option'),
+	path('admin',views.admin,name='admin'),
+	path('makeadmin/<str:pk>/',views.makeadmin,name="makeadmin"),
+	path('makenormal/<str:pk>/',views.makenormal,name="makenormal"),
 ]
