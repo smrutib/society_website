@@ -1,4 +1,34 @@
 {% extends 'commitee/c_index.html' %}
 
-	{% block content %}
-	{% endblock %}
+{% block content %}
+
+<h1>Cheque Details</h1>
+
+<table>
+	
+	<tr>
+	<th>Date of entry</th>
+	<th>Flat No</th>
+	<th>Cheque Date</th>z
+	<th>Cheque Number</th>
+	<th>Amount</th>
+	<th>Bank Name</th>
+	<th>Remarks</th>
+</tr>
+
+	{% for ch in cheques %}
+<tr>
+	<td>{{ ch.entry_date }}</td>
+	<td>{{ ch.flatno }}</td>
+	<td>{{ ch.cheque_date }}</td>
+	<td>{{ ch.chequeno }}</td>
+	<td>{{ ch.amount }}</td>
+	<td>{{ ch.bank }}</td>
+	<td>{{ ch.remarks }}</td>
+
+</tr>	
+	{% endfor %}
+
+</table>
+
+{% endblock %}

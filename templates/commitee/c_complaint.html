@@ -1,1 +1,117 @@
 {% extends 'commitee/c_index.html' %}
+
+{% block content %}
+
+<h1>Intercom</h1>
+
+<table>
+	<tr>
+		<th>Date Of Issue</th>
+		<th>Flat No</th>
+		<th>Description</th>
+		<th>Images</th>
+
+	</tr>
+	{% for c in intercom_complaints %}
+	<tr>
+		<td>{{c.complaint_date }}</td>
+		<td>{{c.flatno}}</td>
+		<td>{{c.description}}</td>
+		<td>
+			{% if c.complain_img %}
+			<img src="{{ c.complain_img.url }}" alt="No Image" style="width:50px;">
+			{% else %}
+			<span class="text-muted">No Image</span>
+			{% endif %}
+		</td>
+
+	</tr>
+
+	{% endfor %}
+
+</table>
+
+
+<h1>Leakage</h1>
+<table>
+	<tr>
+		<th>Date Of Issue</th>
+		<th>Flat No</th>
+		<th>Description</th>
+		<th>Images</th>
+
+	</tr>
+	{% for c in leakage_complaints %}
+	<tr>
+		<td>{{c.complaint_date }}</td>
+		<td>{{c.flatno}}</td>
+		<td>{{c.description}}</td>
+		<td>
+			{% if c.complain_img %}
+			<img src="{{ c.complain_img.url }}" alt="No Image" style="width:50px;">
+			{% else %}
+			<span class="text-muted">No Image</span>
+			{% endif %}
+		</td>
+	</tr>
+
+	{% endfor %}
+
+</table>
+
+
+<h1>Cleaning</h1>
+<table>
+	<tr>
+		<th>Date Of Issue</th>
+		<th>Flat No</th>
+		<th>Description</th>
+		<th>Images</th>
+
+	</tr>
+	{% for c in cleaning_complaints %}
+	<tr>
+		<td>{{c.complaint_date }}</td>
+		<td>{{c.flatno}}</td>
+		<td>{{c.description}}</td>
+		<td>
+			{% if c.complain_img %}
+			<img src="{{ c.complain_img.url }}" alt="No Image" style="width:50px;">
+			{% else %}
+			<span class="text-muted">No Image</span>
+			{% endif %}
+		</td>
+	</tr>
+
+	{% endfor %}
+
+</table>
+
+<h1>Other</h1>
+<table>
+	<tr>
+		<th>Date Of Issue</th>
+		<th>Flat No</th>
+		<th>Description</th>
+		<th>Images</th>
+
+	</tr>
+	{% for c in other_complaints %}
+	<tr>
+		<td>{{c.complaint_date }}</td>
+		<td>{{c.flatno}}</td>
+		<td>{{c.description}}</td>
+		<td>
+			{% if c.complain_img %}
+			<img src="{{ c.complain_img.url }}" alt="No Image" style="width:50px;">
+			{% else %}
+			<span class="text-muted">No Image</span>
+			{% endif %}
+		</td>
+	</tr>
+
+	{% endfor %}
+
+</table>
+
+{% endblock %}

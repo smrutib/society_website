@@ -4,10 +4,36 @@
 {% block content %}
 <body>
 	<form method="post" enctype="multipart/form-data" >
+		
 		{{form.as_p}}
 		{% csrf_token %}
 		<input type="submit" value="Submit">
 		
 	</form>
+
+	<h1>Previous requests</h1>
+
+	<table>
+<tr>
+	<th>Date of request</th>
+	<th>Flat No</th>
+	<th>Start Date</th>
+	<th>End Date</th>
+	<th>Agreement</th>
+	<th>Police Verification Document</th>
+</tr>
+	{% for l in lls %}
+<tr>
+	<td>{{ l.landl_date }}</td>
+	<td>{{ l.flatno }}</td>
+	<td>{{ l.from_date }}</td>
+	<td>{{ l.to_date }}</td>
+	<td><a href="{{l.agreement.url}}" class="btn btn-primary btn-sm" target="_blank">Download</a></td>
+	<td><a href="{{l.police_ver.url}}" class="btn btn-primary btn-sm" target="_blank">Download</a></td>
+</tr>
+	{% endfor %}
+
+</table>
+
 </body>
 {% endblock %}

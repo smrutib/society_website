@@ -4,11 +4,49 @@
 {% block content %}
 <body>
 	<form method="post" enctype="multipart/form-data" >
+		
 		{{form.as_p}}
 		{% csrf_token %}
 		<input type="submit" value="Submit">
 		
 	</form>
+
+<h1>Your Complaints</h1>
+
+<table>
+
+	<tr>
+		<th>Date Of Issue</th>
+		<th>Flat No</th>
+		<th>Complaint Category</th>
+		<th>Description</th>
+		<th>Images</th>
+		<th>Delete</th>
+
+	</tr>
+	{% for c in complaints %}
+
+	<tr>
+		<td>{{c.complaint_date }}</td>
+		<td>{{c.flatno}}</td>
+		<td>{{c.complaint_type}}</td>
+		<td>{{c.description}}</td>
+		<td>
+			{% if c.complain_img %}
+			<img src="{{ c.complain_img.url }}" alt="No Image" style="width:50px;">
+			{% else %}
+			<span class="text-muted">No Image</span>
+			{% endif %}
+
+		</td>
+		<td><a href="{% url 'member:complaint_delete' c.id %}">Delete</a></td>
+	</tr>
+
+	{% endfor %}
+
+</table>
+
+
 </body>
 {% endblock %}
 

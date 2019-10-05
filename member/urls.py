@@ -8,4 +8,6 @@ urlpatterns = [
 	path('request',views.request,name='request'),
 	path('cheque_details',views.cheque_details,name='cheque_details'),
 	path('landl',views.landl,name='landl'),
+	path('complaint_delete/<int:i>/',views.complaint_delete,name='complaint_delete'),
+
 ]
