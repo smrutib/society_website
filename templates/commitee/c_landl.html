@@ -1,6 +1,16 @@
 {% extends 'commitee/c_index.html' %}
 
 	{% block content %}
+	<form method="post">
+{% csrf_token %}
+<input type="text" name="srh" placeholder="Enter Flat No.">
+<button type="submit">Search</button>
+</form>
+{% if messages %}
+		{% for k in messages %}
+			{{ k }}
+		{% endfor %}
+	{% endif %}
 	
 <h1>Leave And License Request </h1>
 <table>
@@ -25,5 +35,38 @@
 
 </table>
 
+
+<br><br>
+<hr>
+<div>
+	<table>
+	{% if sr %}
+		
+	<tr>
+		<th>Date of request</th>
+	<th>Flat No</th>
+	<th>Start Date</th>
+	<th>End Date</th>
+	<th>Agreement</th>
+	<th>Police Verification Document</th>
+
+	</tr>
+	{% for k in sr %}
+	<tr>
+		<td>{{k.landl_date }}</td>
+		<td>{{k.flatno}}</td>
+		<td>{{k.from_date}}</td>
+		<td>
+			{{k.to_date }}
+		</td>
+		<td><a href="{{k.agreement.url}}" class="btn btn-primary btn-sm" target="_blank">Download</a></td>
+	<td><a href="{{k.police_ver.url}}" class="btn btn-primary btn-sm" target="_blank">Download</a></td>
+	{% endfor %}
+	{% endif %}
+		
+	</tr>
+		</table>
+	
+</div>
 
 	{% endblock %}

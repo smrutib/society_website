@@ -1,13 +1,15 @@
 from django.forms import ModelForm
 from home.models import visitors,Quotation
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from .models import CustomUser 
+from .models import CustomUser
 from django import forms 
 
 class visitorsform(ModelForm):
 	class Meta:
 		model=visitors
 		fields=('name','telephone','flat_no','purpose')
+
+
 
 
 class CustomUserCreationForm(UserCreationForm):

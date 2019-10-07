@@ -4,10 +4,10 @@ from commitee import views
 app_name='commitee'
 urlpatterns = [
 	re_path(r'^$',views.index,name='index'),
-	path('complaint',views.complaint,name='complaint'),
-	path('request',views.request,name='request'),
-	path('cheque_details',views.cheque_details,name='cheque_details'),
-	path('landl',views.landl,name='landl'),
+	path('complaint/',views.complaint,name='complaint'),
+	path('request/',views.request,name='request'),
+	path('cheque_details/',views.cheque_details,name='cheque_details'),
+	path('landl/',views.landl,name='landl'),
 	path('option',views.option,name='option'),
 	path('admin',views.admin,name='admin'),
 	path('makeadmin/<str:pk>/',views.makeadmin,name="makeadmin"),
@@ -22,5 +22,5 @@ urlpatterns = [
 	path('cother/<int:i>/',views.other_request_complete,name='other_request_complete'),
 	path('pnoc/<int:i>/',views.noc_request_progress,name='noc_request_progress'),
 	path('cnoc/<int:i>/',views.noc_request_complete,name='noc_request_complete'),
-
+	#path('c_search',views.complaintsearch,name='complaintsearch'),
 ]

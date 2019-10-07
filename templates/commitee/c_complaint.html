@@ -1,6 +1,21 @@
 {% extends 'commitee/c_index.html' %}
 
 {% block content %}
+<form method="post">
+
+{% csrf_token %}
+<input type="text" name="srh" placeholder="Enter Flat No.">
+<button type="submit">Search</button>
+
+
+</form>
+
+
+{% if messages %}
+		{% for k in messages %}
+			{{ k }}
+		{% endfor %}
+	{% endif %}
 
 <h1>Intercom</h1>
 
@@ -29,8 +44,8 @@
 
 	{% endfor %}
 
-</table>
 
+</table>
 
 <h1>Leakage</h1>
 <table>
@@ -113,5 +128,41 @@
 	{% endfor %}
 
 </table>
+<br><br>
+<hr>
+<div>
+	<table>
+	{% if sr %}
+		
+	<tr>
+		<th>Date Of Issue</th>
+		<th>Flat No</th>
+		<th>Description</th>
+		<th>Complaint Type</th>
+		<th>Images</th>
+
+	</tr>
+	{% for k in sr %}
+	<tr>
+		<td>{{k.complaint_date }}</td>
+		<td>{{k.flatno}}</td>
+		<td>{{k.description}}</td>
+		<td>
+			{{k.complaint_type }}
+		</td>
+		<td>
+			{% if k.complain_img %}
+			<img src="{{ k.complain_img.url }}" alt="No Image" style="width:50px;">
+			{% else %}
+			<span class="text-muted">No Image</span>
+			{% endif %}
+		</td>
+	{% endfor %}
+	{% endif %}
+		
+	</tr>
+		</table>
+	
+</div>
 
 {% endblock %}

@@ -2,9 +2,19 @@
 
 	{% block content %}
 
+
+<form method="post">
+{% csrf_token %}
+<input type="text" name="srh" placeholder="Enter Flat No.">
+<button type="submit">Search</button>
+</form>
+{% if messages %}
+		{% for k in messages %}
+			{{ k }}
+		{% endfor %}
+	{% endif %}
+
 <h1>Sales Agreement (NOC)</h1>
-
-
 <table>
 	<tr>
 		<th>Date Of Issue</th>
@@ -141,6 +151,36 @@
 	{% endfor %}
 
 </table>
+
+
+<br><br>
+<hr>
+<div>
+	<table>
+	{% if sr %}
+		
+	<tr>
+		<th>Date Of Issue</th>
+		<th>Flat No</th>
+		<th>Request Type</th>
+		<th>Request</th>
+
+	</tr>
+	{% for k in sr %}
+	<tr>
+		<td>{{k.request_date }}</td>
+		<td>{{k.flatno}}</td>
+		<td>{{k.request_type}}</td>
+		<td>
+			{{k.request }}
+		</td>
+	{% endfor %}
+	{% endif %}
+		
+	</tr>
+		</table>
+	
+</div>
 
 
 	{% endblock %}
