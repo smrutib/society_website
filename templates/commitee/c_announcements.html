@@ -1,0 +1,31 @@
+{% extends 'commitee/c_index.html' %}
+
+	{% block content %}
+
+<form method="POST">
+
+{% csrf_token %}
+  {{ form.as_p }}
+
+  <input type="submit" value="Submit">
+
+</form>
+
+<h1>Present Announements</h1>
+
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Description</th>
+		<th>Delete</th>
+	</tr>
+	{% for a in an %}
+	<tr>
+		<td>{{a.title}}</td>
+		<td>{{a.description}}</td>
+		<td><a href="{% url 'commitee:announce_delete' a.id %}">Delete</a></td>
+	</tr>
+	{% endfor %}
+</table>
+
+{% endblock %}

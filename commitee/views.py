@@ -4,11 +4,14 @@ from member.models import Request,Complaint
 from django.http import HttpResponseRedirect  
 from django.urls import reverse
 from member.models import Complaint,Cheque_details,LandL
-<<<<<<< HEAD
+
 from django.http import HttpResponse
 from django.views.generic import View
 
 from society_website.utils import render_to_pdf
+
+from commitee import forms
+from commitee.models import announcement
 
 # Create your views here.
 
@@ -140,3 +143,25 @@ class GeneratePdf(View):
 		cheques=Cheque_details.objects.all().order_by('entry_date')
 		pdf = render_to_pdf('commitee/c_cheque_details.html',{'cheques':cheques})
 		return HttpResponse(pdf, content_type='application/pdf')
+
+
+
+def announcements(request):
+
+	if request.method == 'POST':
+		form = forms.AnnounceForm(request.POST)
+		if form.is_valid():
+			form.save()
+			form = forms.AnnounceForm()
+	else:
+		form = forms.AnnounceForm()
+
+	an=announcement.objects.all()
+
+	return render(request,'commitee/c_announcements.html',{'form':form,'an':an})
+
+def announcement_delete(request,i):
+
+	announcement.objects.filter(id=i).delete()
+
+	return HttpResponseRedirect(reverse('commitee:announce'))

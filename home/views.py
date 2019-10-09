@@ -7,7 +7,7 @@ from home import forms
 from .forms import CustomUserCreationForm,quotationform
 from django.views.generic import View
 from django.shortcuts import redirect
-
+from commitee.models import announcement
 
 def home(request):
 	return render(request,"home/homepage.html")
@@ -63,4 +63,7 @@ def login_success(request):
         return redirect("commitee/option.html")
 
 def test(request):
-	return render(request,"home/test.html")
+
+	a=announcement.objects.all()
+
+	return render(request,"home/test.html",{'a':a})
