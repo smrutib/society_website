@@ -2,20 +2,27 @@
 
 	{% block content %}
 
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+<div class="jumbotron" style="padding-top:2%">
 <form method="post">
 {% csrf_token %}
 <input type="text" name="srh" placeholder="Enter Flat No.">
-<button type="submit">Search</button>
+<button type="submit" class="btn btn-danger">Search</button>
 </form>
 {% if messages %}
 		{% for k in messages %}
 			{{ k }}
 		{% endfor %}
 	{% endif %}
-
-<h1>Sales Agreement (NOC)</h1>
-<table>
+</div>
+<div class="container">
+<h2>Sales Agreement (NOC)</h2>
+<table class="table table-striped">
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -33,21 +40,24 @@
 		<td>{{r.flatno}}</td>
 		<td>{{r.new_members_names}}</td>
 		<td>{{r.sales_details}}</td>
-		<td><a href="{{r.bank_format.url}}" class="btn btn-primary btn-sm" target="_blank">Download</a></td>
+		<td><a href="{{r.bank_format.url}}" class="btn btn-success btn-sm" target="_blank">Download</a></td>
 		<td>{{r.request}}</td>
-		<td><a href="{% url 'commitee:sales_request_progress' r.id %}">Click</a></td>
-		<td><a href="{% url 'commitee:sales_request_complete' r.id %}">Click</a></td>
+		<td><a href="{% url 'commitee:sales_request_progress' r.id %}" class="btn btn-success btn-sm" >Click</a></td>
+		<td><a href="{% url 'commitee:sales_request_complete' r.id %}" class="btn btn-success btn-sm" >Click</a></td>
 
 	</tr>
 
 	{% endfor %}
 
 </table>
+</div>
 
-<h1>Address Proof for Passport </h1>
+<div class="container">
+
+<h2>Address Proof for Passport </h2>
 
 
-<table>
+<table class="table table-striped">
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -63,19 +73,20 @@
 		<td>{{r.flatno}}</td>
 		<td>{{r.name_to_be_addressed}}</td>
 		<td>{{r.request}}</td>
-		<td><a href="{% url 'commitee:Addp_request_progress' r.id %}">Click</a></td>
-		<td><a href="{% url 'commitee:Addp_request_complete' r.id %}">Click</a></td>
+		<td><a href="{% url 'commitee:Addp_request_progress' r.id %}" class="btn btn-success btn-sm" > Click</a></td>
+		<td><a href="{% url 'commitee:Addp_request_complete' r.id %}" class="btn btn-success btn-sm" >Click</a></td>
 
 	</tr>
 
 	{% endfor %}
 
 </table>
+</div>
+<div class="container">
 
+<h2>CCTV Request</h2>
 
-<h1>CCTV Request</h1>
-
-<table>
+<table class="table table-striped">
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -93,18 +104,20 @@
 		<td>{{r.cctv_time_from}}</td>
 		<td>{{r.cctv_time_to}}</td>
 		<td>{{r.request}}</td>
-		<td><a href="{% url 'commitee:cctv_request_progress' r.id %}">Click</a></td>
-		<td><a href="{% url 'commitee:cctv_request_complete' r.id %}">Click</a></td>
+		<td><a href="{% url 'commitee:cctv_request_progress' r.id %}" class="btn btn-success btn-sm" >Click</a></td>
+		<td><a href="{% url 'commitee:cctv_request_complete' r.id %}" class="btn btn-success btn-sm" >Click</a></td>
 
 	</tr>
 
 	{% endfor %}
 
 </table>
+</div>
+<div class="container">
 
-<h1>NOC</h1>
+<h2>NOC</h2>
 
-<table>
+<table class="table table-striped">
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -118,18 +131,19 @@
 		<td>{{ r.request_date }}</td>
 		<td>{{r.flatno}}</td>
 		<td>{{r.request}}</td>
-		<td><a href="{% url 'commitee:noc_request_progress' r.id %}">Click</a></td>
-		<td><a href="{% url 'commitee:noc_request_complete' r.id %}">Click</a></td>
+		<td><a href="{% url 'commitee:noc_request_progress' r.id %}" class="btn btn-success btn-sm" >Click</a></td>
+		<td><a href="{% url 'commitee:noc_request_complete' r.id %}" class="btn btn-success btn-sm" >Click</a></td>
 
 	</tr>
 
 	{% endfor %}
 
 </table>
-
+</div>
+<div class="container">
 <h1>Other </h1>
 
-<table>
+<table class="table table-striped">
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -143,23 +157,24 @@
 		<td>{{ r.request_date }}</td>
 		<td>{{r.flatno}}</td>		
 		<td>{{r.request}}</td>
-		<td><a href="{% url 'commitee:other_request_progress' r.id %}">Click</a></td>
-		<td><a href="{% url 'commitee:other_request_complete' r.id %}">Click</a></td>
+		<td><a href="{% url 'commitee:other_request_progress' r.id %}" class="btn btn-success btn-sm" >Click</a></td>
+		<td><a href="{% url 'commitee:other_request_complete' r.id %}" class="btn btn-success btn-sm" >Click</a></td>
 
 	</tr>
 
 	{% endfor %}
 
 </table>
+</div>
 
 
 <br><br>
 <hr>
-<div>
-	<table>
+<div class="container">
+	<table class="table">
 	{% if sr %}
 		
-	<tr>
+	<tr class="danger">
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
 		<th>Request Type</th>
@@ -167,7 +182,7 @@
 
 	</tr>
 	{% for k in sr %}
-	<tr>
+	<tr class="success">
 		<td>{{k.request_date }}</td>
 		<td>{{k.flatno}}</td>
 		<td>{{k.request_type}}</td>

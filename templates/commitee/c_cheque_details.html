@@ -1,21 +1,29 @@
 {% extends 'commitee/c_index.html' %}
 
 {% block content %}
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<div class="jumbotron" style="padding-top:2%">
 <form method="post">
 {% csrf_token %}
 <input type="text" name="srh" placeholder="Enter Flat No.">
-<button type="submit">Search</button>
+<button type="submit" class="btn btn-danger">Search</button>
 </form>
 {% if messages %}
 		{% for k in messages %}
 			{{ k }}
 		{% endfor %}
 	{% endif %}
+</div>
+<div class="container">
+<h2>Cheque Details</h2>
 
-
-<h1>Cheque Details</h1>
-
-<table>
+<table class="table table-striped">
 	
 	<tr>
 	<th>Date of entry</th>
@@ -42,15 +50,15 @@
 
 </table>
 
-
+</div>
 
 <br><br>
 <hr>
-<div>
+<div class="container">
 	<table>
 	{% if sr %}
 		
-	<tr>
+	<tr class="danger">
 		<th>Date of entry</th>
 	<th>Flat No</th>
 	<th>Cheque Date</th>z
@@ -61,7 +69,7 @@
 
 	</tr>
 	{% for k in sr %}
-	<tr>
+	<tr class="success">
 		<td>{{k.entry_date }}</td>
 		<td>{{k.flatno}}</td>
 		<td>{{k.cheque_date}}</td>
@@ -80,5 +88,5 @@
 	
 </div>
 
-<a href="{% url 'commitee:htmltopdf' %}">download pdf </a>
+<a href="{% url 'commitee:htmltopdf' % }" class="btn btn-danger">download pdf </a>
 {% endblock %}

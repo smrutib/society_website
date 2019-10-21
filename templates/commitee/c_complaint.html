@@ -1,11 +1,19 @@
 {% extends 'commitee/c_index.html' %}
 
 {% block content %}
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <div class="jumbotron" style="padding-top:2%">
 <form method="post">
 
 {% csrf_token %}
 <input type="text" name="srh" placeholder="Enter Flat No.">
-<button type="submit">Search</button>
+<button type="submit" class="btn btn-danger">Search</button>
 
 
 </form>
@@ -16,10 +24,11 @@
 			{{ k }}
 		{% endfor %}
 	{% endif %}
+</div>
+<div class="container">
+<h2>Intercom</h2>
 
-<h1>Intercom</h1>
-
-<table>
+<table class="table table-striped">
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -46,9 +55,11 @@
 
 
 </table>
+</div>
 
-<h1>Leakage</h1>
-<table>
+<div class="container">
+<h2>Leakage</h2>
+<table class="table table-striped">
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -74,9 +85,10 @@
 
 </table>
 
-
-<h1>Cleaning</h1>
-<table>
+</div>
+<div class="container">
+<h2>Cleaning</h2>
+<table class="table table-striped">
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -101,9 +113,10 @@
 	{% endfor %}
 
 </table>
-
-<h1>Other</h1>
-<table>
+</div>
+<div class="container">
+<h2>Other</h2>
+<table class="table table-striped">
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -128,13 +141,14 @@
 	{% endfor %}
 
 </table>
+</div>
 <br><br>
 <hr>
-<div>
-	<table>
+<div class="container">
+	<table class="table">
 	{% if sr %}
 		
-	<tr>
+	<tr class="danger">
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
 		<th>Description</th>
@@ -143,7 +157,7 @@
 
 	</tr>
 	{% for k in sr %}
-	<tr>
+	<tr class="success">
 		<td>{{k.complaint_date }}</td>
 		<td>{{k.flatno}}</td>
 		<td>{{k.description}}</td>
