@@ -4,7 +4,7 @@ from member.models import Request,Complaint
 from django.http import HttpResponseRedirect  
 from django.urls import reverse
 from member.models import Complaint,Cheque_details,LandL
-<<<<<<< HEAD
+
 from django.db.models import Q
 from django.contrib import messages
 from django.http import HttpResponse
