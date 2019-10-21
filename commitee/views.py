@@ -4,11 +4,20 @@ from member.models import Request,Complaint
 from django.http import HttpResponseRedirect  
 from django.urls import reverse
 from member.models import Complaint,Cheque_details,LandL
+<<<<<<< HEAD
 from django.db.models import Q
 from django.contrib import messages
 from django.http import HttpResponse
 from django.views.generic import View
 from society_website.utils import render_to_pdf
+from commitee import forms
+from commitee.models import announcement
+
+from django.http import HttpResponse
+from django.views.generic import View
+
+from society_website.utils import render_to_pdf
+
 from commitee import forms
 from commitee.models import announcement
 
@@ -183,10 +192,13 @@ def other_request_complete(request,i):
 	return HttpResponseRedirect(reverse('commitee:request'))
 
 
+<<<<<<< HEAD
 def complaintsearch(request):
 	
 	return render(request,'commitee/c_complaint.html')
 
+=======
+>>>>>>> 9b82b610120eeb221305ff229c6716a158cd4807
 
 class GeneratePdf(View):
 	def get(self, request, *args, **kwargs):
@@ -214,5 +226,7 @@ def announcement_delete(request,i):
 
 	announcement.objects.filter(id=i).delete()
 
+
 	return HttpResponseRedirect(reverse('commitee:announce'))
+
 

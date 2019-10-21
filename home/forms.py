@@ -61,7 +61,6 @@ class visitorsform(ModelForm):
 
 
 
-
 class CustomUserCreationForm(UserCreationForm):
 	wing_choices = [
 	('A', 'A'),

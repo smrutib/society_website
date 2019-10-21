@@ -23,6 +23,10 @@ urlpatterns = [
 	path('cother/<int:i>/',views.other_request_complete,name='other_request_complete'),
 	path('pnoc/<int:i>/',views.noc_request_progress,name='noc_request_progress'),
 	path('cnoc/<int:i>/',views.noc_request_complete,name='noc_request_complete'),
+	path('pdfdownload', GeneratePdf.as_view(),name='htmltopdf'),
+	path('announcements',views.announcements,name='announce'),
+	path('announcement_delete/<int:i>/',views.announcement_delete,name='announce_delete'),
+
 
 	path('pdfdownload', GeneratePdf.as_view(),name='htmltopdf'),
 	path('announcements',views.announcements,name='announce'),
