@@ -1,7 +1,87 @@
-table {
+/*table {
   border-collapse: collapse;
 }
 
 table, th, td {
   border: 1px solid black;
+}*/
+
+.pull-left
+{
+	float: left;
+}
+
+.flatcolumn
+{
+	
+display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details
+{
+
+	border-left: 1px solid #f1f1f1;
+	text-align: center;
+  
+}
+.date
+{
+	border-left: 1px solid #f1f1f1;
+	text-align: center;
+
+}
+
+#contain{width:80%; display: flex;}
+#left{float:left;width:10%;}
+#right{float:right;width:25%;}
+#center{margin:0 auto;flex:1 1 auto;}
+
+
+span.step {
+  background: #CDE4F2;
+  border-radius: 25px;
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 50px;
+ 
+  text-align: center;
+  width:50px; 
+  
+ 
+  
+}
+
+p.text
+{
+	font-size: 14px;
+}
+.fa
+{
+	margin-top: 5px;
+}
+
+.destitle
+{
+  font-family: 'Open Sans', sans-serif;
+      color: #363838;
+      
+}
+
+.downloadbtn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* Darker background on mouse-over */
+.downloadbtn:hover {
+  background-color: RoyalBlue;
 }

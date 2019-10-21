@@ -53,7 +53,7 @@ class Request(models.Model):
         created=models.BooleanField(default=True)
         inprogress=models.BooleanField(default=False)
         completed=models.BooleanField(default=False)
-        bank_format = models.FileField(upload_to='request_bank_format/')
+        bank_format = models.FileField(upload_to='request_bank_format/',blank=True)
 
 
 class Cheque_details(models.Model):

@@ -20,7 +20,7 @@ def visitors(request):
 			t=form.cleaned_data['flat']
 			st=s+t
 			record=form.save(commit=False)
-			record.flatno=st
+			record.flat_no=st
 			record=form.save()
 			record.save()
 			form=forms.visitorsform()
