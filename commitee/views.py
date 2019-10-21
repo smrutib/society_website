@@ -6,6 +6,12 @@ from django.urls import reverse
 from member.models import Complaint,Cheque_details,LandL
 from django.db.models import Q
 from django.contrib import messages
+from django.http import HttpResponse
+from django.views.generic import View
+from society_website.utils import render_to_pdf
+from commitee import forms
+from commitee.models import announcement
+
 def index(request):
 	
 	return render(request,'commitee/c_index.html')
@@ -176,6 +182,37 @@ def other_request_complete(request,i):
 
 	return HttpResponseRedirect(reverse('commitee:request'))
 
+
 def complaintsearch(request):
 	
 	return render(request,'commitee/c_complaint.html')
+
+
+class GeneratePdf(View):
+	def get(self, request, *args, **kwargs):
+		cheques=Cheque_details.objects.all().order_by('entry_date')
+		pdf = render_to_pdf('commitee/c_cheque_details.html',{'cheques':cheques})
+		return HttpResponse(pdf, content_type='application/pdf')
+
+
+
+def announcements(request):
+
+	if request.method == 'POST':
+		form = forms.AnnounceForm(request.POST)
+		if form.is_valid():
+			form.save()
+			form = forms.AnnounceForm()
+	else:
+		form = forms.AnnounceForm()
+
+	an=announcement.objects.all()
+
+	return render(request,'commitee/c_announcements.html',{'form':form,'an':an})
+
+def announcement_delete(request,i):
+
+	announcement.objects.filter(id=i).delete()
+
+	return HttpResponseRedirect(reverse('commitee:announce'))
+

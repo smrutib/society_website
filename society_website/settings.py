@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django_tables2',  
     'bootstrap4',
     'home.apps.LoginRegisterConfig',
-]
+    'crispy_forms',
+    ]
 
 MIDDLEWARE =[
     'django.middleware.security.SecurityMiddleware',
@@ -125,6 +126,7 @@ USE_TZ = True
 
 DJANGO_TABLES2_TEMPLATE = "django_tables2/bootstrap4.html"
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [

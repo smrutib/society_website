@@ -100,3 +100,4 @@ def complaint_delete(request,i):
 	Complaint.objects.filter(id=i).delete()
 
 	return HttpResponseRedirect(reverse('member:complaint'))
+
