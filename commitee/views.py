@@ -192,13 +192,9 @@ def other_request_complete(request,i):
 	return HttpResponseRedirect(reverse('commitee:request'))
 
 
-<<<<<<< HEAD
 def complaintsearch(request):
 	
 	return render(request,'commitee/c_complaint.html')
-
-=======
->>>>>>> 9b82b610120eeb221305ff229c6716a158cd4807
 
 class GeneratePdf(View):
 	def get(self, request, *args, **kwargs):
