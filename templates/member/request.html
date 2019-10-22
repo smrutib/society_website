@@ -19,14 +19,14 @@
 
 	<h1>Request</h1>
 
-	<div class="container">
+	<div class="container" style="border: 1px solid black">
 		<form  method="post" enctype="multipart/form-data">
 			
 			{% csrf_token %}
 
-			Flat No:{{form.wing}}{{form.flat}}<br>
+			Flat No:&nbsp;&nbsp;{{form.wing}} &nbsp;&nbsp;{{form.flat}}<br><br>
 
-			Choose Request :{{form.request_type}}<br>
+			Choose Request :&nbsp;&nbsp;{{form.request_type}}<br><br>
 
 			<div id='status' style="display: none;">
 
@@ -37,22 +37,22 @@
 			</div>
 
 			<div id='addressproof'>
-			Name to be Addressed:{{form.name_to_be_addressed}}<br></div>
+			Name to be Addressed:&nbsp;&nbsp;{{form.name_to_be_addressed}}<br><br></div>
 
 			<div id='sales'>
-			new_members_names:{{form.new_members_names}}<br>
-			sales_details:{{form.sales_details}}<br>
-			Upload Bank Format:{{form.bank_format}}
+			New Members Names:&nbsp;&nbsp;{{form.new_members_names}}<br><br>
+			Sales Details:&nbsp;&nbsp;{{form.sales_details}}<br><br>
+			Upload Bank Format:&nbsp;&nbsp;{{form.bank_format}}<br>
 			<br>
 			</div>
 
 			<div id='cctv'>
-			cctv_time_from:{{form.cctv_time_from}}&nbsp;&nbsp;cctv_time_to:{{form.cctv_time_to}}<br>
+			Cctv time from:&nbsp;&nbsp;{{form.cctv_time_from}}&nbsp;&nbsp;&nbsp;Cctv time to:&nbsp;&nbsp;{{form.cctv_time_to}}<br><br>
 			</div>
 
-			request:{{form.request}}<br>
+			Request:<br><br>{{form.request}}<br><br>
 
-			<input type="submit" class="btn btn-primary" value="Submit">
+			<input type="submit" class="downloadbtn" style="font-size: 16px; padding: 10px;width:100px;" value="Submit">
 				
 		</form>	
 </div>
@@ -155,17 +155,17 @@
 
 {% for r in table %}
 
-	<div class="tablerow" id="contain" style="background-color: #ffffff;z-index: -2; position: absolute;margin-left: 5%;margin-bottom: 15px;">
+	<div class="tablerow" id="contain" style="background-color: #ffffff;z-index: 1; position: relative;margin-left: 5%;margin-bottom: 15px;">
 	
 		<div class ="flatcolumn pull-left" id="left">
 			<div class=" flatno" ><span class="step">{{r.flatno}}</span></div>
 		</div>
 
-		<div class="details" id="center">
+		<div class="details" id="center" style="z-index:1; position: relative;">
 			<div >
 		{% if r.request_type == 'SalesAgreement'%}
 			
-				<p class="destitle">You have made request for <b>Sales Agreement</b> </p>
+				<p class="destitle">You have made request for <b><font color=#18d26e>Sales Agreement</font></b> </p>
 			<ul style="list-style-type:none">
 				<li><b>New Member Names:</b>{{r.new_members_names}}</li>
 				<li><b>Details:</b>{{r.sales_details}}</li>
@@ -210,7 +210,7 @@
 		
 		{% endif %}
 		</div>
-		<div style="z-index: 1;background-color: #ffffff;">
+		<div >
 			{% if r.completed %}
 			<div class="container1" style="margin-left: 25%;">
      			 <ul class="progressbar">

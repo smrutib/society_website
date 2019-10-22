@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1 align="center">Valentine Apt III</h1><h3 align="right">Date:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3>
+	<h3>Branch :Dindoshi </h3>
+	<h3>Account No :123456789</h3>
+
+<table>	
+	<tr>
+	<th>Date of entry</th>
+	<th>Flat No</th>
+	<th>Cheque Date</th>z
+	<th>Cheque Number</th>
+	<th>Amount</th>
+	<th>Bank Name</th>
+	<th>Remarks</th>
+</tr>
+
+	{% for ch in cheques %}
+<tr>
+	<td>{{ ch.entry_date }}</td>
+	<td>{{ ch.flatno }}</td>
+	<td>{{ ch.cheque_date }}</td>
+	<td>{{ ch.chequeno }}</td>
+	<td>{{ ch.amount }}</td>
+	<td>{{ ch.bank }}</td>
+	<td>{{ ch.remarks }}</td>
+
+</tr>	
+	{% endfor %}
+
+</table>
+
+</body>
+</html>

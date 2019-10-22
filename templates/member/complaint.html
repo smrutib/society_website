@@ -2,7 +2,9 @@
 {% block title %} complaint {% endblock %}
 
 {% block content %}
-<body>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/request_table_style.css' %}">
+<body bgcolor="#E8E8E8">
 	<form method="post" enctype="multipart/form-data" >
 		
 		{{form.as_p}}
@@ -13,7 +15,7 @@
 
 <h1>Your Complaints</h1>
 
-<table>
+<!--<table>
 
 	<tr>
 		<th>Date Of Issue</th>
@@ -44,7 +46,45 @@
 
 	{% endfor %}
 
-</table>
+</table>-->
+
+{% for c in complaints %}
+
+	<div class="tablerow" id="contain">
+	
+		<div class ="flatcolumn pull-left" id="left">
+			<div class=" flatno" ><span class="step">{{c.flatno}}</span></div>
+		</div>
+
+		<div class="details" id="center">
+			
+			<p class="destitle">You have made complaint on<b><font color=#18d26e>{{c.complaint_type}}</font></b> </p>
+			<p>{{c.description}}</p>
+			{% if c.complain_img %}
+			<img src="{{ c.complain_img.url }}" alt="No Image" style="width:90px;">
+			{% else %}
+			<span class="text-muted">No Image</span>
+			{% endif %}
+
+
+		</div>
+
+		<div class="date" id="right">
+			<div>
+			<p class="text">Date of Issue</p>
+			<i class="fa fa-calendar" aria-hidden="true"></i>
+			<p>{{c.complaint_date }}</p>
+			</div>
+			<hr class="style-two">
+			<div>
+				<button  class ="downloadbtn" onclick="window.location.href = '{% url 'member:complaint_delete' c.id %}';" style="font-size: 14px;"><i class="fa fa-close"></i>&nbsp Cancel</button>
+			</div>
+		</div>
+		
+
+	</div>
+
+{% endfor %}
 
 
 </body>
