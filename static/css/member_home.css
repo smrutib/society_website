@@ -9,7 +9,7 @@ body,html
 	z-index: 1;
 	top: 0;
 	left: 0;
-	background-color: #111;
+	background-color: #CDE4F2;
 	overflow-x: hidden;
 	padding-top: 20px;
 
@@ -17,6 +17,7 @@ body,html
 
 .sidenav a{
 	padding: 6px 8px 6px 16px;
+	font-family: Poppins-Regular;
 	text-decoration: none;
 	font-size:25px;
 	color: #818181;
