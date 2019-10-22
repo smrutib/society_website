@@ -2,9 +2,67 @@
 
 {% block content %}
 
-<h1>Cheque Details</h1>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-<table>
+<div class="jumbotron" style="padding-top:2%;align-items: center;">
+<form method="post" style="text-align: center;">
+{% csrf_token %}
+<input type="text" name="srh" placeholder="Enter Flat No.">
+<button type="submit" class="btn btn-primary" style="border-radius: 25px">Search</button>
+</form>
+{% if messages %}
+		{% for k in messages %}
+			{{ k }}
+		{% endfor %}
+	{% endif %}
+</div>
+
+<div class="container">
+	<table class="table">
+	{% if sr %}
+		
+	<tr class="danger">
+		<th>Date of entry</th>
+	<th>Flat No</th>
+	<th>Cheque Date</th>z
+	<th>Cheque Number</th>
+	<th>Amount</th>
+	<th>Bank Name</th>
+	<th>Remarks</th>
+
+	</tr>
+	{% for k in sr %}
+	<tr class="success">
+		<td>{{k.entry_date }}</td>
+		<td>{{k.flatno}}</td>
+		<td>{{k.cheque_date}}</td>
+		<td>
+			{{k.chequeno }}
+		</td>
+		<td>{{ k.amount }}</td>
+	<td>{{ k.bank }}</td>
+	<td>{{ k.remarks }}</td>
+
+	{% endfor %}
+	{% endif %}
+		
+	</tr>
+		</table>
+	
+</div>
+
+
+
+<hr>
+
+<div class="container">
+<h2>Cheque Details</h2>
+
+<table class="table table-striped">
 	
 	<tr>
 	<th>Date of entry</th>
@@ -30,7 +88,8 @@
 	{% endfor %}
 
 </table>
+</div>
+<hr>
 
-<a href="{% url 'commitee:htmltopdf' %}">download pdf </a>
-
+<a href="{% url 'commitee:htmltopdf' %}" class="btn btn-primary" style="border-radius: 25px;">download pdf </a>
 {% endblock %}

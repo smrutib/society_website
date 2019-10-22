@@ -28,6 +28,4 @@ class Quotation(models.Model):
 	pdf=models.FileField(upload_to='quotations/pdfs/')
 
 
-def __str__(self):
-	return self.name
 

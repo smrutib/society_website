@@ -2,9 +2,71 @@
 
 {% block content %}
 
-<h1>Intercom</h1>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-<table>
+  <div class="jumbotron" style="padding-top:2%">
+<form method="post" style="text-align: center;">
+
+{% csrf_token %}
+<input type="text" name="srh" placeholder="Enter Flat No.">
+<button type="submit" class="btn btn-primary" style="border-radius: 25px;">Search</button>
+
+
+</form>
+
+
+{% if messages %}
+		{% for k in messages %}
+			{{ k }}
+		{% endfor %}
+	{% endif %}
+</div>
+
+
+<div class="container">
+	<table class="table">
+	{% if sr %}
+		
+	<tr class="danger">
+		<th>Date Of Issue</th>
+		<th>Flat No</th>
+		<th>Description</th>
+		<th>Complaint Type</th>
+		<th>Images</th>
+
+	</tr>
+	{% for k in sr %}
+	<tr class="success">
+		<td>{{k.complaint_date }}</td>
+		<td>{{k.flatno}}</td>
+		<td>{{k.description}}</td>
+		<td>
+			{{k.complaint_type }}
+		</td>
+		<td>
+			{% if k.complain_img %}
+			<img src="{{ k.complain_img.url }}" alt="No Image" style="width:50px;">
+			{% else %}
+			<span class="text-muted">No Image</span>
+			{% endif %}
+		</td>
+	{% endfor %}
+	{% endif %}
+		
+	</tr>
+		</table>
+	
+</div>
+<hr>
+
+<div class="container">
+<h2>Intercom</h2>
+
+<table class="table table-striped">
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -29,11 +91,13 @@
 
 	{% endfor %}
 
+
 </table>
+</div>
 
-
-<h1>Leakage</h1>
-<table>
+<div class="container">
+<h2>Leakage</h2>
+<table class="table table-striped">
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -59,9 +123,10 @@
 
 </table>
 
-
-<h1>Cleaning</h1>
-<table>
+</div>
+<div class="container">
+<h2>Cleaning</h2>
+<table class="table table-striped">
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -86,9 +151,10 @@
 	{% endfor %}
 
 </table>
-
-<h1>Other</h1>
-<table>
+</div>
+<div class="container">
+<h2>Other</h2>
+<table class="table table-striped">
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -113,5 +179,6 @@
 	{% endfor %}
 
 </table>
+</div>
 
 {% endblock %}

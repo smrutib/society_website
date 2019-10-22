@@ -14,6 +14,7 @@
 <script src="{% static 'js/request.js' %}"></script>
  <link rel="stylesheet" href="{% static 'css/request_statusbar.css' %}">
  <link rel="stylesheet" type="text/css" href="{% static 'css/request_table_style.css' %}">
+ 
 
 <!--===============================================================================================-->
 	<link rel="icon" type="image/png" href="{% static 'form/images/icons/favicon.ico' %}"/>
@@ -42,7 +43,6 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
- 
 
 </head>
 
@@ -229,9 +229,12 @@
 				
 		</form>	
 </div>
+
 <h1>Your Requests</h1>
 
-<table>
+
+
+<!--<table>
 	<tr>
 		<th>Date Of Issue</th>
 		<th>Flat No</th>
@@ -320,17 +323,110 @@
 
 	{% endfor %}
 
-</table>
+</table>-->
 
-<datalist id="request_type">
-	<option value="NOC" selected>NOC</option>
-	<option value="AddressProof(Passport)">AddressProof(Passport)</option>
-	<option value="SalesAgreementNOC">SalesAgreementNOC</option>
-	<option value="CCTV">CCTV</option>
-	<option value="Other">Other</option>
 
-</datalist>
+{% for r in table %}
+
+	<div class="tablerow" id="contain" style="background-color: #ffffff;z-index: 1; position: relative;margin-left: 5%;margin-bottom: 15px;">
+	
+		<div class ="flatcolumn pull-left" id="left">
+			<div class=" flatno" ><span class="step">{{r.flatno}}</span></div>
+		</div>
+
+		<div class="details" id="center" style="z-index:1; position: relative;">
+			<div >
+		{% if r.request_type == 'SalesAgreement'%}
+			
+				<p class="destitle">You have made request for <b><font color=#18d26e>Sales Agreement</font></b> </p>
+			<ul style="list-style-type:none">
+				<li><b>New Member Names:</b>{{r.new_members_names}}</li>
+				<li><b>Details:</b>{{r.sales_details}}</li>
+				<li><b>Remarks:</b>{{r.request}}</li>
+				<li><b>NOC Format:</b><button  class ="downloadbtn" onclick="window.location.href = '{{r.bank_format.url}}';"><i class="fa fa-download"></i>Download</button></li>
+
+			</ul>
+			
+			
+		{% elif r.request_type == 'AddressProof' %}
+		
+				<p class="destitle">You have made request for <b>Address Proof</b> </p>
+			<ul style="list-style-type:none">
+				<li><b>Name to be Addressed:</b>{{r.name_to_be_addressed }}</li>
+				<li><b>Remarks:</b>{{r.request}}</li>
+			</ul>
+				
+		
+
+		{% elif r.request_type == 'CCTV' %}
+		
+				<p class="destitle">You have made request to view <b>CCTV Footage</b> </p>
+			<ul style="list-style-type:none">
+				<li><b>From:</b>{{r.cctv_time_from }}</li>
+				<li><b>To:</b>{{r.cctv_time_to }}</li>
+				<li><b>Remarks:</b>{{r.request}}</li>
+			</ul>
+				
+		
+		{% elif r.request_type == 'NOC' %}
+		
+			<p class="destitle">You have made request for <b>NOC</b> </p>
+			<ul style="list-style-type:none">
+				<li><b>Details:</b>{{r.request}}</li>
+			</ul>
+				
+		
+		{% else %}
+		
+			<p class="destitle"><b>Your request:</b>{{r.request}} </p>
+				
+		
+		{% endif %}
+		</div>
+		<div >
+			{% if r.completed %}
+			<div class="container1" style="margin-left: 25%;">
+     			 <ul class="progressbar">
+          			<li class="active">Request Sent</li>
+          			<li class="active">In Progress</li>
+          			<li class="active">Completed</li>
+          			
+ 				 </ul>
+    		</div> 
+    		
+    		{% elif r.inprogress %}
+			<div class="container1" style="margin-left: 25%;">
+     			 <ul class="progressbar">
+          			<li class="active">Request Sent</li>
+          			<li class="active">In Progress</li>
+          			<li>Completed</li>
+          			
+ 				 </ul>
+    		</div> 
+    		
+			{% else  %}
+			<div class="container1" style="margin-left: 25%;">
+     			 <ul class="progressbar">
+          			<li class="active">Request Sent</li>
+          			<li>In Progress</li>
+          			<li>Completed</li>
+          			
+ 				 </ul>
+    		</div> 
+    		{% endif %}
+		</div>
+	</div>
+	
+		<div class="date" id="right">
+			<p class="text">Date of Issue</p>
+			<i class="fa fa-calendar" aria-hidden="true"></i>
+			<p>{{r.request_date }}</p>
+			
+		</div>
+		
+
+	</div>
 
 </body>
-
+{% endfor %}
 {% endblock %}

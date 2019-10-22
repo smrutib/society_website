@@ -5,10 +5,10 @@ from .views import GeneratePdf
 app_name='commitee'
 urlpatterns = [
 	re_path(r'^$',views.index,name='index'),
-	path('complaint',views.complaint,name='complaint'),
-	path('request',views.request,name='request'),
-	path('cheque_details',views.cheque_details,name='cheque_details'),
-	path('landl',views.landl,name='landl'),
+	path('complaint/',views.complaint,name='complaint'),
+	path('request/',views.request,name='request'),
+	path('cheque_details/',views.cheque_details,name='cheque_details'),
+	path('landl/',views.landl,name='landl'),
 	path('option',views.option,name='option'),
 	path('admin',views.admin,name='admin'),
 	path('makeadmin/<str:pk>/',views.makeadmin,name="makeadmin"),
@@ -26,6 +26,9 @@ urlpatterns = [
 	path('pdfdownload', GeneratePdf.as_view(),name='htmltopdf'),
 	path('announcements',views.announcements,name='announce'),
 	path('announcement_delete/<int:i>/',views.announcement_delete,name='announce_delete'),
+	path('visitors',views.visitorslist,name='visitors'),
+	path('quotations',views.quotationslist,name='quotations'),
 
 
+	
 ]

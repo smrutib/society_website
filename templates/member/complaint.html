@@ -28,6 +28,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'form/css/util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'form/css/main.css' %}">
 <!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/request_table_style.css' %}">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -164,7 +165,7 @@
 
 <h1>Your Complaints</h1>
 
-<table>
+<!--<table>
 
 	<tr>
 		<th>Date Of Issue</th>
@@ -195,7 +196,45 @@
 
 	{% endfor %}
 
-</table>
+</table>-->
+
+{% for c in complaints %}
+
+	<div class="tablerow" id="contain">
+	
+		<div class ="flatcolumn pull-left" id="left">
+			<div class=" flatno" ><span class="step">{{c.flatno}}</span></div>
+		</div>
+
+		<div class="details" id="center">
+			
+			<p class="destitle">You have made complaint on<b><font color=#18d26e>{{c.complaint_type}}</font></b> </p>
+			<p>{{c.description}}</p>
+			{% if c.complain_img %}
+			<img src="{{ c.complain_img.url }}" alt="No Image" style="width:90px;">
+			{% else %}
+			<span class="text-muted">No Image</span>
+			{% endif %}
+
+
+		</div>
+
+		<div class="date" id="right">
+			<div>
+			<p class="text">Date of Issue</p>
+			<i class="fa fa-calendar" aria-hidden="true"></i>
+			<p>{{c.complaint_date }}</p>
+			</div>
+			<hr class="style-two">
+			<div>
+				<button  class ="downloadbtn" onclick="window.location.href = '{% url 'member:complaint_delete' c.id %}';" style="font-size: 14px;"><i class="fa fa-close"></i>&nbsp Cancel</button>
+			</div>
+		</div>
+		
+
+	</div>
+
+{% endfor %}
 
 
 </body>

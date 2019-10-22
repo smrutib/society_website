@@ -1,31 +1,41 @@
 {% extends 'commitee/c_index.html' %}
 
 	{% block content %}
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-<form method="POST">
+
+	<div class="jumbotron" style="padding-top: 2%">
+<form method="POST" style="text-align: center;" >
+
 
 {% csrf_token %}
   {{ form.as_p }}
 
-  <input type="submit" value="Submit">
+  <input type="submit" value="Submit" class="btn btn-primary" style="border-radius: 25px;">
+</form>
+</div>
 
 </form>
+<div class="container">
+<h2>Present Announements</h2>
 
-<h1>Present Announements</h1>
-
-<table>
-	<tr>
+<table class="table">
+	<tr class="danger">
 		<th>Title</th>
 		<th>Description</th>
 		<th>Delete</th>
 	</tr>
 	{% for a in an %}
-	<tr>
+	<tr class="info">
 		<td>{{a.title}}</td>
 		<td>{{a.description}}</td>
-		<td><a href="{% url 'commitee:announce_delete' a.id %}">Delete</a></td>
+		<td><a href="{% url 'commitee:announce_delete' a.id %}" class="btn btn-success">Delete</a></td>
 	</tr>
 	{% endfor %}
 </table>
-
+</div>
 {% endblock %}
