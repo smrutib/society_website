@@ -1,0 +1,74 @@
+git clone https://github.com/smrutib/society_website.git
+cd society_website
+git checkout -b commitee
+git fetch
+git branch --set-upstream-to=origin/commitee commitee
+git pull origin commitee
+git add .
+git commit -m "second commit"
+git push origin commitee
+
+
+
+
+
+git add .
+>>git pull origin commitee
+
+
+From https://github.com/smrutib/society_website
+ * branch            commitee   -> FETCH_HEAD
+   d21b4fd..57e03bb  commitee   -> origin/commitee
+error: Your local changes to the following files would be overwritten by merge:
+        hi.txt
+Please commit your changes or stash them before you merge.
+Aborting
+Updating d21b4fd..57e03bb
+
+//delete head and nos
+
+git add .
+
+rishi@LAPTOP-GF0CVG7I MINGW64 ~/OneDrive/Desktop/society_website (commitee)
+$ git commit -m "sec mess"
+
+[commitee 4e68b52] sec mess
+ 1 file changed, 1 insertion(+)
+
+git push origin commitee
+
+To https://github.com/smrutib/society_website.git
+ ! [rejected]        commitee -> commitee (non-fast-forward)
+error: failed to push some refs to 'https://github.com/smrutib/society_website.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+git pull origin commitee
+
+From https://github.com/smrutib/society_website
+ * branch            commitee   -> FETCH_HEAD
+Auto-merging hi.txt
+CONFLICT (content): Merge conflict in hi.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+rishi@LAPTOP-GF0CVG7I MINGW64 ~/OneDrive/Desktop/society_website (commitee|MERGING)
+$ git add .
+
+rishi@LAPTOP-GF0CVG7I MINGW64 ~/OneDrive/Desktop/society_website (commitee|MERGING)
+$ git commit -m "resolved"
+[commitee 0c40227] resolved
+
+rishi@LAPTOP-GF0CVG7I MINGW64 ~/OneDrive/Desktop/society_website (commitee)
+$ git push origin commitee
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (6/6), 663 bytes | 110.00 KiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0)
+To https://github.com/smrutib/society_website.git
+   57e03bb..0c40227  commitee -> commitee
+
+

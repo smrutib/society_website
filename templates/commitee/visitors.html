@@ -1,0 +1,32 @@
+{% extends 'commitee/c_index.html' %}
+
+	{% block content %}
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+  <div class="container">
+<h2>Visitors</h2>
+
+<table class="table table-striped">
+	<tr class>
+		<th>Name</th>
+		<th>telephone Number</th>
+		<th>Flat No</th>
+		<th> Purpose</th>
+	</tr>
+	{% for a in v %}
+	<tr class=>
+		<td>{{a.name}}</td>
+		<td>{{a.telephone}}</td>
+		<td>{{a.flat_no}}</td>
+		<td>{{a.purpose}}</td>
+		
+	</tr>
+	{% endfor %}
+</table>
+</div>
+{% endblock %}

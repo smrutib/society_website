@@ -8,32 +8,25 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
 
-	<div class="jumbotron" style="padding-top: 2%">
-<form method="POST" style="text-align: center;" >
+  <div class="container">
+<h2>Quotations</h2>
 
-
-{% csrf_token %}
-  {{ form.as_p }}
-
-  <input type="submit" value="Submit" class="btn btn-primary" style="border-radius: 25px;">
-</form>
-</div>
-
-</form>
-<div class="container">
-<h2>Present Announements</h2>
-
-<table class="table">
-	<tr class="danger">
-		<th>Title</th>
+<table class="table table-striped">
+	<tr class>
+		<th>Name</th>
+		<th>telephone Number</th>
+		<th>Email</th>
 		<th>Description</th>
-		<th>Delete</th>
+		<th>Quotation</th>
 	</tr>
-	{% for a in an %}
-	<tr class="info">
-		<td>{{a.title}}</td>
+	{% for a in q %}
+	<tr class=>
+		<td>{{a.company_name}}</td>
+		<td>{{a.telephone}}</td>
+		<td>{{a.email}}</td>
 		<td>{{a.description}}</td>
-		<td><a href="{% url 'commitee:announce_delete' a.id %}" class="btn btn-success">Delete</a></td>
+		<td>{{a.pdf}}</td>
+		
 	</tr>
 	{% endfor %}
 </table>
