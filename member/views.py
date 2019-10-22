@@ -7,6 +7,8 @@ from member.models import Cheque_details,Request,Complaint,LandL
 from home.models import CustomUser 
 from datetime import date
 from django.urls import reverse
+from datetime import datetime
+
 
 def index(request):
 	
@@ -24,6 +26,8 @@ def complaint(request):
 			record.flatno=st
 			record.save()
 			form = forms.ComplaintForm()
+		else:
+			print(form.errors)
 	else:
 		form = forms.ComplaintForm()
 
@@ -61,14 +65,27 @@ def cheque_details(request):
 	if request.method == 'POST':
 		form = forms.ChequeDetailsForm(request.POST)
 		if form.is_valid():
+			print("valid")
 			s = form.cleaned_data['wing']
 			t=form.cleaned_data['flat']
 			st=s+t
+			c=form.cleaned_data['chequeno']
+			a=form.cleaned_data['amount']
+			b=form.cleaned_data['bank']
+			rem=form.cleaned_data['remarks']
+			d=form.cleaned_data['cheque_date']
 			record =form.save(commit=False)			
 			record.user=request.user.username
 			record.flatno=st
-			record.save()
+			record.chequeno=c
+			record.amount=a
+			record.bank=b
+			record.remarks=rem
+			record.cheque_date=d
+			record.save()     
 			form = forms.ChequeDetailsForm()
+		else:
+			print(form.errors)
 	else:
 		form = forms.ChequeDetailsForm()
 
@@ -88,6 +105,8 @@ def landl(request):
 			record.flatno=st
 			record.save()
 			form = forms.LandLForm()
+		else:
+			print(form.errors)
 	else:
 		form = forms.LandLForm()
 	lls = LandL.objects.filter(username = request.user.username).order_by('landl_date')

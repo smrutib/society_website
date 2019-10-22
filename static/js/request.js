@@ -14,7 +14,7 @@ cctv_fields.hide();
 
 
 
-$("#id_request_type").change(function() {
+$('#request').change(function() {
     if ($(this).val() == "AddressProof") {
         addproof_fields.show();
     } else {

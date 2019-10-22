@@ -27,7 +27,7 @@ urlpatterns = [
     path('home/',include('home.urls')),
     path('home/', include('django.contrib.auth.urls')),
     path('commitee/',include('commitee.urls')),
-    path('member/', views.login_success, name='login_success')
+    path('login/', views.login_success, name='login_success')
 
 ]
 

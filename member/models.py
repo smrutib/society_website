@@ -61,7 +61,7 @@ class Cheque_details(models.Model):
         flatno=models.CharField(max_length=5)
         user = models.CharField(max_length=50)
         cheque_date=models.DateField( auto_now_add=False)
-        chequeno = models.CharField(max_length=6, validators=[RegexValidator(r'^\d{1,10}$')])
+        chequeno = models.CharField(max_length=6 , validators=[RegexValidator(r'^\d{1,10}$')])
         amount=models.IntegerField(validators=[MinValueValidator(0, message="Amount should be more than 0")])
         bank=models.CharField(max_length=200)
         remarks=models.CharField(max_length=500,default="none")
