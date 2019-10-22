@@ -7,12 +7,12 @@
 	 <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
        
 </head>
-<body>
-	<header id="header" style="background: rgba(0, 0, 0, 0.9);height:72px;padding-top:5px;padding-bottom: 5px;">
-    <div class="container-fluid">
+<body style="margin:0px;">
+	<header  style="background: rgba(0, 0, 0, 0.9);padding-left:160px;overflow:hidden;">
+    
 
       <div id="logo" class="pull-left" style="margin-top: 10px;">
-        <h1><a href="#intro" class="scrollto" style="text-decoration: none;">Valentine Apts</a></h1>    
+        <h1><a class="scrollto" style="text-decoration: none;margin-left: 20px;">Valentine Apts</a></h1>    
       </div>
 
       <nav id="nav-menu-container"  style="margin-top:20px;">
@@ -21,9 +21,9 @@
           <li><a href="/home/test">Home</a></li>
          
         </ul>
-      </nav><!-- #nav-menu-container -->
-    </div>
-  </header>
+      </nav><!--#nav-menu-container -->
+   
+  </header> 
 <div class="sidenav">
 	
 	<a href="{% url 'commitee:complaint' %}">Complaint</a>
@@ -31,8 +31,6 @@
 	<a href="{% url 'commitee:cheque_details' %}">Cheque Details</a>
 	<a href="{% url 'commitee:landl' %}">Leave & License</a>
 	<a href="{% url 'commitee:announce' %}">Add Announcement</a>
-	<a href="{% url 'commitee:visitors' %}"> Visitors list</a>
-	<a href="{% url 'commitee:quotations' %}"> Quotation list</a>
 
 
 </div>
