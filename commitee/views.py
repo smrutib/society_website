@@ -20,6 +20,7 @@ from society_website.utils import render_to_pdf
 
 from commitee import forms
 from commitee.models import announcement
+from home.models import visitors, Quotation
 
 def index(request):
 	
@@ -224,5 +225,13 @@ def announcement_delete(request,i):
 
 
 	return HttpResponseRedirect(reverse('commitee:announce'))
+
+def visitorslist(request):
+	v=visitors.objects.all()
+	return render(request,'commitee/visitors.html',{'v':v})
+
+def quotationslist(request):
+	q=Quotation.objects.all()
+	return render(request,'commitee/quotations.html',{'q':q})
 
 

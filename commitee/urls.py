@@ -26,9 +26,9 @@ urlpatterns = [
 	path('pdfdownload', GeneratePdf.as_view(),name='htmltopdf'),
 	path('announcements',views.announcements,name='announce'),
 	path('announcement_delete/<int:i>/',views.announcement_delete,name='announce_delete'),
+	path('visitors',views.visitorslist,name='visitors'),
+	path('quotations',views.quotationslist,name='quotations'),
 
 
-	path('pdfdownload', GeneratePdf.as_view(),name='htmltopdf'),
-	path('announcements',views.announcements,name='announce'),
-	path('announcement_delete/<int:i>/',views.announcement_delete,name='announce_delete'),
+	
 ]

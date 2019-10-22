@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-<div class="jumbotron" style="padding-top:2%">
+<div class="jumbotron" style="padding-top:2%;align-items: center;">
 <form method="post">
 {% csrf_token %}
 <input type="text" name="srh" placeholder="Enter Flat No.">
@@ -20,41 +20,9 @@
 		{% endfor %}
 	{% endif %}
 </div>
+
 <div class="container">
-<h2>Cheque Details</h2>
-
-<table class="table table-striped">
-	
-	<tr>
-	<th>Date of entry</th>
-	<th>Flat No</th>
-	<th>Cheque Date</th>z
-	<th>Cheque Number</th>
-	<th>Amount</th>
-	<th>Bank Name</th>
-	<th>Remarks</th>
-</tr>
-
-	{% for ch in cheques %}
-<tr>
-	<td>{{ ch.entry_date }}</td>
-	<td>{{ ch.flatno }}</td>
-	<td>{{ ch.cheque_date }}</td>
-	<td>{{ ch.chequeno }}</td>
-	<td>{{ ch.amount }}</td>
-	<td>{{ ch.bank }}</td>
-	<td>{{ ch.remarks }}</td>
-
-</tr>	
-	{% endfor %}
-
-</table>
-</div>
-
-<br><br>
-<hr>
-<div class="container">
-	<table>
+	<table class="table">
 	{% if sr %}
 		
 	<tr class="danger">
@@ -87,6 +55,41 @@
 	
 </div>
 
-<a href="{% url 'commitee:htmltopdf' % }" class="btn btn-danger">download pdf </a>
 
+
+<hr>
+
+<div class="container">
+<h2>Cheque Details</h2>
+
+<table class="table table-striped">
+	
+	<tr>
+	<th>Date of entry</th>
+	<th>Flat No</th>
+	<th>Cheque Date</th>z
+	<th>Cheque Number</th>
+	<th>Amount</th>
+	<th>Bank Name</th>
+	<th>Remarks</th>
+</tr>
+
+	{% for ch in cheques %}
+<tr>
+	<td>{{ ch.entry_date }}</td>
+	<td>{{ ch.flatno }}</td>
+	<td>{{ ch.cheque_date }}</td>
+	<td>{{ ch.chequeno }}</td>
+	<td>{{ ch.amount }}</td>
+	<td>{{ ch.bank }}</td>
+	<td>{{ ch.remarks }}</td>
+
+</tr>	
+	{% endfor %}
+
+</table>
+</div>
+<hr>
+
+<a href="{% url 'commitee:htmltopdf' %}" class="btn btn-danger">download pdf </a>
 {% endblock %}
