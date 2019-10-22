@@ -200,7 +200,7 @@ def complaintsearch(request):
 class GeneratePdf(View):
 	def get(self, request, *args, **kwargs):
 		cheques=Cheque_details.objects.all().order_by('entry_date')
-		pdf = render_to_pdf('commitee/c_cheque_details.html',{'cheques':cheques})
+		pdf = render_to_pdf('commitee/chequetopdf.html',{'cheques':cheques})
 		return HttpResponse(pdf, content_type='application/pdf')
 
 

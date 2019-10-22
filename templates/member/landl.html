@@ -2,7 +2,10 @@
 {% block title %} leave and license  {% endblock %}
 
 {% block content %}
-<body>
+{% load static %}
+
+ <link rel="stylesheet" type="text/css" href="{% static 'css/request_table_style.css' %}">
+<body bgcolor="#E8E8E8">
 	<form method="post" enctype="multipart/form-data" >
 		
 		{{form.as_p}}
@@ -13,7 +16,7 @@
 
 	<h1>Previous requests</h1>
 
-	<table>
+<!--<table>
 <tr>
 	<th>Date of request</th>
 	<th>Flat No</th>
@@ -33,7 +36,37 @@
 </tr>
 	{% endfor %}
 
-</table>
+</table>-->
+{% for l in lls %}
+
+	<div class="tablerow" id="contain">
+	
+		<div class ="flatcolumn pull-left" id="left">
+			<div class=" flatno" ><span class="step">{{ l.flatno }}</span></div>
+		</div>
+
+		<div class="details" id="center">
+				<p class="destitle">You have made request for <b><font color=#18d26e>Leave And License</font></b> </p>
+			<ul style="list-style-type:none">
+				<li><b>Start Date:</b>{{ l.from_date }}</li>
+				<li><b>End Date:</b>{{ l.to_date }}</li>
+				<li><b>Agreement Document</b><br><button  class ="downloadbtn" onclick="window.location.href = '{{l.agreement.url}}';"><i class="fa fa-download"></i>Download</button></li>
+				<li><b>Police Verification Document</b><br><button  class ="downloadbtn" onclick="window.location.href = '{{l.police_ver.url}}';"><i class="fa fa-download"></i>Download</button></li>
+
+			</ul>
+
+		</div>
+	
+		<div class="date" id="right">
+			<p class="text">Date of Issue</p>
+			<i class="fa fa-calendar" aria-hidden="true"></i>
+			<p>{{ l.landl_date }}</p>
+			
+		</div>
+		
+
+	</div>
+{% endfor %}
 
 </body>
 {% endblock %}

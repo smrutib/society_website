@@ -24,7 +24,7 @@ display: flex;
 
 	border-left: 1px solid #f1f1f1;
 	text-align: center;
-  
+
 }
 .date
 {
@@ -40,7 +40,7 @@ display: flex;
 
 
 span.step {
-  background: #CDE4F2;
+  background: #111;
   border-radius: 25px;
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -73,15 +73,38 @@ p.text
 }
 
 .downloadbtn {
-  background-color: DodgerBlue;
+  background-color:  #57b846;
   border: none;
   color: white;
   padding: 5px 5px;
   cursor: pointer;
   font-size: 12px;
+  border-radius: 25px;
 }
 
 /* Darker background on mouse-over */
 .downloadbtn:hover {
-  background-color: RoyalBlue;
+  background-color: #333333;
+}
+
+li
+{
+  margin-bottom: 5px;
+
+}
+
+.tablerow
+{
+  background-color: #ffffff;
+  z-index: 1;
+   position: relative;
+   margin-left: 5%;
+   margin-bottom: 15px;
+   padding-bottom: 10px;
+}
+
+hr.style-two {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }

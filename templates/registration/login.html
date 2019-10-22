@@ -1,20 +1,5 @@
 
-<<<<<<< HEAD
-{% extends 'home/homepage.html' %}
 
-{% block title %}Login{% endblock %}
-
-{% block content %}
-<h2>Login</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <a href="{% url 'password_reset' %}">Forgot password?</a>
-  <button type="submit">Login</button>
-</form>
-{% endblock %}
-=======
->>>>>>> 9b82b610120eeb221305ff229c6716a158cd4807
 {% load static %}
 <html lang="en">
 <head>
@@ -105,9 +90,8 @@
 						<span class="txt1">
 							Forgot
 						</span>
-						<a class="txt2" href="#">
-							Username / Password?
-						</a>
+						<a class="txt2" href="{% url 'password_reset' %}">Forgot password?</a>
+						
 					</div>
 
 					<div class="text-center p-t-35">
@@ -142,9 +126,7 @@
 	<script src="{% static 'js/main1.js' %}"></script>
 
 </body>
-<<<<<<< HEAD
+
 </html>
 
-=======
-</html>
->>>>>>> 9b82b610120eeb221305ff229c6716a158cd4807
+
