@@ -52,15 +52,15 @@ def quotation_upload(request):
 		form=forms.quotationform()
 	return render(request, "home/quotation.html",{'form':form})
 
-
-
 def login_success(request):
-    if request.objects.filter(rights="normal"):
-    	return redirect("member/")
-    elif request.objects.filter(rights="commitee"): 
-    	return redirect("commitee/admin.html")
-    else:
-        return redirect("commitee/option.html")
+	rights=request.user.rights
+	if rights== "commitee":
+		return redirect("/commitee/option")
+	elif rights == "Admin" :
+		return redirect("/commitee/admin")
+	else:
+		return redirect("/member/")
+
 
 def test(request):
 

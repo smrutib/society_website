@@ -33,8 +33,8 @@
 	<td>{{ m.username }}</td>
 	<td>{{ m.flatno }}</td>
 	<td>{{ m.email }}</td>
-	<td><button id="btn" a href="{% url 'commitee:makeadmin' m.username %}" class="btn btn-success" style="border-radius: 25px;">Commitee</button></td>
-	<td><button id="btn" a href="{% url 'commitee:makenormal' m.username %}"class="btn btn-success" style="border-radius: 25px;">Normal</button></td>
+	<td><a href="{% url 'commitee:makeadmin' m.username %}" class="btn btn-success" type="button" style="border-radius: 25px;">Commitee</a></td>
+	<td><a href="{% url 'commitee:makenormal' m.username %}"class="btn btn-success" type="button" style="border-radius: 25px;">Normal</a></td>
 </tr>
 	{% endfor %}
 
