@@ -22,9 +22,12 @@ from commitee import forms
 from commitee.models import announcement
 from home.models import visitors, Quotation
 
+# Create your views here.
+
 def index(request):
 	
 	return render(request,'commitee/c_index.html')
+
 
 def complaint(request):
 
@@ -107,6 +110,7 @@ def landl(request):
 
 
 	return render(request,'commitee/c_landl.html',{'lls':lls})
+
 
 def option(request):
 
@@ -193,9 +197,6 @@ def other_request_complete(request,i):
 	return HttpResponseRedirect(reverse('commitee:request'))
 
 
-def complaintsearch(request):
-	
-	return render(request,'commitee/c_complaint.html')
 
 class GeneratePdf(View):
 	def get(self, request, *args, **kwargs):
@@ -223,7 +224,6 @@ def announcement_delete(request,i):
 
 	announcement.objects.filter(id=i).delete()
 
-
 	return HttpResponseRedirect(reverse('commitee:announce'))
 
 def visitorslist(request):
@@ -233,5 +233,3 @@ def visitorslist(request):
 def quotationslist(request):
 	q=Quotation.objects.all()
 	return render(request,'commitee/quotations.html',{'q':q})
-
-

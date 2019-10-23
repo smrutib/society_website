@@ -8,22 +8,24 @@
        
 </head>
 <body>
-	<header id="header" style="background: rgba(0, 0, 0, 0.9);height:72px;padding-top:5px;padding-bottom: 5px;">
-    <div class="container-fluid">
+	
+	 <header  style="background: rgba(0, 0, 0, 0.9);padding-left:170px;overflow:hidden;">
+    
 
       <div id="logo" class="pull-left" style="margin-top: 10px;">
-        <h1><a href="#intro" class="scrollto" style="text-decoration: none;">Valentine Apts</a></h1>    
+        <h1><a class="scrollto" style="text-decoration: none;margin-left: 20px;color:">Valentine Apts</a></h1>    
       </div>
 
       <nav id="nav-menu-container"  style="margin-top:20px;">
         <ul class="nav-menu">
           
           <li><a href="/home/test">Home</a></li>
+          <li><a href="{% url 'logout' %}">Logout</a></li>
          
         </ul>
-      </nav><!-- #nav-menu-container -->
-    </div>
-  </header>
+      </nav>
+   
+  </header> 
 <div class="sidenav">
 	
 	<a href="{% url 'commitee:complaint' %}">Complaint</a>
