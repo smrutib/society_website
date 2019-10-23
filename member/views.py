@@ -52,7 +52,10 @@ def request(request):
 			#record.date_of_issue=date.today
 			record.save()
 			form = forms.RequestForm()
+		else:
+			print(form.errors)
 	else:
+
 		form = forms.RequestForm()
 
 	table = (Request.objects.filter(username =request.user.username )).order_by('request_date')
