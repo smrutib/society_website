@@ -1,10 +1,119 @@
-{% extends 'home/base.html' %}
+{% load static %}
+{% load bootstrap4 %}
 
-{% block content %}
-<h2>upload quotation</h2>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{ form.as_p}}
-  <button type="submit">Upload Quotation</button>
-</form>
-{% endblock %}
+<head>
+	<title>Contact V15</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'form/images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'form/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'form/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'form/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'form/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'form/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'form/vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'form/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'form/vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'form/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'form/css/main.css' %}">
+<!--===============================================================================================-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<div class="wrap-contact100" >
+			<div class="contact100-form-title" style="background-image: url({% static 'form/images/bg-01.jpg' %});">
+				<span class="contact100-form-title-1">
+					Quotation
+				</span>
+
+				<span class="contact100-form-title-2">
+					Enter the details Below!
+				</span>
+			</div>
+	<form  method="post" class="contact100-form " enctype="multipart/form-data" >
+		{% csrf_token %}
+
+				<div class="wrap-input100 ">
+					{% if form.company_name.errors %}
+						<ul class="errorlist">
+    						<li style="font-size: 10px;color: red;font-style: italic;">Company Name is required.</li>
+						</ul>
+					{% endif %}
+
+					<span class="label-input100">Company Name</span>
+					<input type="text" name="company_name" required maxlength="50" id="id_company_name" class="input100" placeholder="Company Name">
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input100 ">
+					{% if form.telephone.errors %}
+						<ul class="errorlist">
+    						<li style="font-size: 10px;color: red;font-style: italic;">Telephone field is required.</li>
+						</ul>
+					{% endif %}
+
+					<span class="label-input100">Telephone:</span>
+					<input class="input100" id="id_telephone" type="text" name="telephone" placeholder="Telephone">
+					<span class="focus-input100"></span>
+				</div>
+
+
+				<div class="wrap-input100 ">
+					{% if form.email.errors %}
+						<ul class="errorlist">
+    						<li style="font-size: 10px;color: red;font-style: italic;">Email field is required.</li>
+						</ul>
+					{% endif %}
+
+					<span class="label-input100">Email:</span>
+					
+					<input class="input100" id="id_email" type="text" name="email" placeholder="Email">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 ">
+					{% if form.description.errors %}
+						<ul class="errorlist">
+    						<li style="font-size: 10px;color: red;font-style: italic;">Description is required.</li>
+						</ul>
+					{% endif %}
+
+					<span class="label-input100">Description:</span>
+					<textarea class="input100" id="id_description" name="description" placeholder="Enter Description"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-drop100 ">
+
+					{% if form.pdf.errors %}
+						<ul class="errorlist">
+    						<li style="font-size: 10px;color: red;font-style: italic;">This Field is required.</li>
+						</ul>
+					{% endif %}
+
+					<span idclass="label-input100">Documents:</span>
+					{{form.pdf}}
+				</div>
+
+				<div class="container-contact100-form-btn">
+				<input type="submit" class="contact100-form-btn" value="Submit">
+				</div>
+
+		
+	</form>
+</div>
+</body>
+
