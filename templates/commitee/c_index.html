@@ -7,13 +7,13 @@
 	 <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
        
 </head>
-<body style="margin:0px;">
+<body>
 	
-	 <header  style="background: rgba(0, 0, 0, 0.9);padding-left:160px;overflow:hidden;">
+	 <header  style="background: rgba(0, 0, 0, 0.9);padding-left:170px;overflow:hidden;">
     
 
       <div id="logo" class="pull-left" style="margin-top: 10px;">
-        <h1><a class="scrollto" style="text-decoration: none;margin-left: 20px;">Valentine Apts</a></h1>    
+        <h1><a class="scrollto" style="text-decoration: none;margin-left: 20px;color:">Valentine Apts</a></h1>    
       </div>
 
       <nav id="nav-menu-container"  style="margin-top:20px;">
@@ -33,6 +33,8 @@
 	<a href="{% url 'commitee:cheque_details' %}">Cheque Details</a>
 	<a href="{% url 'commitee:landl' %}">Leave & License</a>
 	<a href="{% url 'commitee:announce' %}">Add Announcement</a>
+	<a href="{% url 'commitee:visitors' %}"> Visitors list</a>
+	<a href="{% url 'commitee:quotations' %}"> Quotation list</a>
 
 
 </div>

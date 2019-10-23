@@ -4,12 +4,12 @@ body,html
 }
 .sidenav{
 	height:100%;
-	width:160px;
+	width: 170px;
 	position:fixed;
 	z-index: 1;
 	top: 0;
 	left: 0;
-	background-color: #CDE4F2;
+	background-color:rgba(0, 0, 0, 0.9);
 	overflow-x: hidden;
 	padding-top: 20px;
 
@@ -20,7 +20,7 @@ body,html
 	font-family: Poppins-Regular;
 	text-decoration: none;
 	font-size:25px;
-	color: #818181;
+	color: #eee;
 	display: block;
 }
 
