@@ -159,7 +159,7 @@
 			</div>
 
 			<div id="sales" class="wrap-input100" >
-				
+				<div  class="wrap-input100 ">
 					{% if form.new_members_names.errors %}
 						<ul class="errorlist">
     						<li style="font-size: 10px;color: red;font-style: italic;">Members field is required.</li>
@@ -170,8 +170,8 @@
 					<input class="input100" type="text" name="new_members_names" id="id_new_members_names" placeholder="Enter Name">
 					<span class="focus-input100"></span>
 				
-
-				<div>
+				</div>
+				<div  class="wrap-input100 ">
 
 					{% if form.sales_details.errors %}
 						<ul class="errorlist">
@@ -246,96 +246,7 @@
 
 
 
-<!--<table>
-	<tr>
-		<th>Date Of Issue</th>
-		<th>Flat No</th>
-		<th>Request Description</th>
-		<th>Status</th>
-		
-	</tr>
-	{% for r in table %}
-	<tr>
-		<td>{{r.request_date }}</td>
-		<td>{{r.flatno}}</td>
-		{% if r.request_type == 'SalesAgreement'%}
-		<td>
-			<p>You have made request for <b>Sales Agreement</b> </p>
-			<ul>
-				<li><b>New Member Names:</b>{{r.new_members_names}}</li>
-				<li><b>Details:</b>{{r.sales_details}}</li>
-				<li><b>Format:</b><a href="{{r.bank_format.url}}" class="btn btn-primary btn-sm" target="_blank">Download</a></li>
-				<li><b>Remarks:</b>{{r.request}}</li>
-			</ul>
-		</td>
 
-		{% elif r.request_type == 'AddressProof' %}
-		<td>
-			<p>You have made request for <b>Address Proof</b> </p>
-			<ul>
-				<li><b>Name to be Addressed:</b>{{r.name_to_be_addressed }}</li>
-				<li><b>Remarks:</b>{{r.request}}</li>
-			</ul>
-		</td>
-		{% elif r.request_type == 'CCTV' %}
-		<td>
-			<p>You have made request to view <b>CCTV Footage</b> </p>
-			<ul>
-				<li><b>From:</b>{{r.cctv_time_from }}</li>
-				<li><b>To:</b>{{r.cctv_time_to }}</li>
-				<li><b>Remarks:</b>{{r.request}}</li>
-			</ul>
-		</td>
-		{% elif r.request_type == 'NOC' %}
-		<td>
-			<p>You have made request for <b>NOC</b> </p>
-			<ul>
-				<li><b>Details:</b>{{r.request}}</li>
-			</ul>
-		</td>
-		{% else %}
-		<td>
-			<p><b>Your request:</b>{{r.request}} </p>	
-		</td>
-		{% endif %}
-		<td>
-			{% if r.completed %}
-			<div class="container1">
-     			 <ul class="progressbar">
-          			<li class="active">Request Sent</li>
-          			<li class="active">In Progress</li>
-          			<li class="active">Completed</li>
-          			
- 				 </ul>
-    		</div> 
-    		
-    		{% elif r.inprogress %}
-			<div class="container1">
-     			 <ul class="progressbar">
-          			<li class="active">Request Sent</li>
-          			<li class="active">In Progress</li>
-          			<li>Completed</li>
-          			
- 				 </ul>
-    		</div> 
-    		
-			{% else  %}
-			<div class="container1">
-     			 <ul class="progressbar">
-          			<li class="active">Request Sent</li>
-          			<li>In Progress</li>
-          			<li>Completed</li>
-          			
- 				 </ul>
-    		</div> 
-    		{% endif %}
-		</td>
-
-	</tr>
-
-	{% endfor %}
-
-</table>-->
 
 <br>
 <hr class="style-two">

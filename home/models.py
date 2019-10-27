@@ -17,7 +17,7 @@ class CustomUser(AbstractUser):
 	flat_no = models.CharField(max_length=20)
 	email = models.EmailField(max_length=100)
 
-	rights = models.CharField(max_length=10, default="Admin")
+	rights = models.CharField(max_length=10, default="Normal")
 
 
 class Quotation(models.Model):
