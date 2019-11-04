@@ -14,6 +14,7 @@
 <script src="{% static 'js/request.js' %}"></script>
  <link rel="stylesheet" href="{% static 'css/request_statusbar.css' %}">
  <link rel="stylesheet" type="text/css" href="{% static 'css/request_table_style.css' %}">
+ <link rel="stylesheet" type="text/css" href="{% static 'form/css/align.css' %}">
  
 
 <!--===============================================================================================-->
@@ -59,9 +60,10 @@
 					Enter the details Below!
 				</span>
 			</div>
+
 	<form  method="post" class="contact100-form" enctype="multipart/form-data" >
 		{% csrf_token %}
-
+		
 			<div class="wrap-drop100 ">
 					{% if form.wing.errors %}
 						<ul class="errorlist">

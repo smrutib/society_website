@@ -273,13 +273,14 @@ iframe {
   font-size: 15px;
   color: #808080;
   line-height: 1.2;
-  text-align: right;
+  text-align: left;
 
-  position: absolute;
+  /*position: absolute;*/
+  display:block;
+  margin-bottom: 10px;
  
   left: -105px;
-  width: 80px;
-
+  width: 200px;
 }
 
 /*---------------------------------------------*/
@@ -446,6 +447,7 @@ textarea.input100 {
     left: unset;
     width: 100%;
     padding: 0 5px;
+
   }
 }
 

@@ -692,6 +692,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #about .about-col p {
+  height : 180px;
   font-size: 14px;
   line-height: 24px;
   color: #333;
