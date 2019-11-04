@@ -5,28 +5,30 @@
 	<title>{% block title %} Commitee page {% endblock %}</title>
 	<link rel="stylesheet" href="{% static 'css/member_home.css' %}">
 	 <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
-       
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
 </head>
-<body style="margin: 0px;">
-	
-	 <header  style="background: rgba(0, 0, 0, 0.9);padding-left:170px;overflow:hidden;">
-    
 
-      <div id="logo" class="pull-left" style="margin-top: 10px;">
-         
+
+<body style="margin:0px;background-color: #eee;">
+
+<div class="pull-left" style="z-index: 200;position: absolute;margin-left: 10px;">
+        <h2><font color="white">Valentine Apts</font></h2>    
       </div>
-
+  
+  <header  style="background: rgba(0, 0, 0, 0.9);overflow:hidden;">
+    
       <nav id="nav-menu-container"  style="margin-top:20px;">
         <ul class="nav-menu">
           
-          <li><a href="/home/test">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="{% url 'logout' %}">Logout</a></li>
          
         </ul>
       </nav>
    
   </header> 
-<div class="sidenav">
+
+<div class="sidenav" style="padding-top:80px;">
 	
 	<a href="{% url 'commitee:complaint' %}">Complaint</a>
 	<a href="{% url 'commitee:request' %}">Request</a>
