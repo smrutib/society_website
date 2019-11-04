@@ -152,13 +152,13 @@
     						<li style="font-size: 10px;color: red;font-style: italic;">This Field is required.</li>
 						</ul>
 					{% endif %}
-
 					<span class="label-input100">Images</span>
+
 					{{form.complain_img}}
 				</div>
 
 				<div class="container-contact100-form-btn">
-				<input type="submit" class="contact100-form-btn" value="Submit"/>
+				<input type="submit" class="contact100-form-btn" value="Submit" style="margin-left: 80px;" />
 				</div>
 
 		
@@ -167,38 +167,6 @@
 <hr class="style-two"><br>
 <h1 align="center">Your Complaints</h1><br>
 
-<!--<table>
-
-	<tr>
-		<th>Date Of Issue</th>
-		<th>Flat No</th>
-		<th>Complaint Category</th>
-		<th>Description</th>
-		<th>Images</th>
-		<th>Delete</th>
-
-	</tr>
-	{% for c in complaints %}
-
-	<tr>
-		<td>{{c.complaint_date }}</td>
-		<td>{{c.flatno}}</td>
-		<td>{{c.complaint_type}}</td>
-		<td>{{c.description}}</td>
-		<td>
-			{% if c.complain_img %}
-			<img src="{{ c.complain_img.url }}" alt="No Image" style="width:50px;">
-			{% else %}
-			<span class="text-muted">No Image</span>
-			{% endif %}
-
-		</td>
-		<td><a href="{% url 'member:complaint_delete' c.id %}">Delete</a></td>
-	</tr>
-
-	{% endfor %}
-
-</table>-->
 
 {% for c in complaints %}
 
