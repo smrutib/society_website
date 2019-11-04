@@ -74,8 +74,8 @@ class RequestForm(ModelForm):
 	completed=forms.BooleanField(initial=False,required=False)
 	class Meta:
 		model = Request
-		fields = ['bank_format','request_type','name_to_be_addressed','new_members_names','sales_details','cctv_time_from','cctv_time_to','request','created','inprogress','completed']
-		exclude=['username','date_of_issue','flatno']
+		fields = '__all__'
+		exclude=['username','date_of_issue','flatno','created','inprogress','completed']
 		
 	def fields_required(self, fields):
 		"""Used for conditionally marking fields as required."""

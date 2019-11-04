@@ -59,7 +59,7 @@
 					Enter the details Below!
 				</span>
 			</div>
-	<form  method="post" class="contact100-form " enctype="multipart/form-data" >
+	<form  method="post" class="contact100-form" enctype="multipart/form-data" >
 		{% csrf_token %}
 
 			<div class="wrap-drop100 ">
@@ -70,15 +70,15 @@
 					{% endif %}
 
 					<span class="label-input100">Wing:</span>
-					<select name="wing"  class="drop100" >
+					<select name="wing" id="id_wing" class="drop100" >
 					<option value="" disabled selected>Wing</option>	
 					<option value="A">A</option>
 					<option value="B">B</option>
 					<option value="C">C</option>
 				</select>
-				</div>
+			</div>
 
-				<div class="wrap-drop100 ">
+			<div class="wrap-drop100 ">
 					{% if form.flat.errors %}
 						<ul class="errorlist">
     						<li style="font-size: 10px;color: red;font-style: italic;">Flat no. is required.</li>
@@ -86,7 +86,7 @@
 					{% endif %}
 
 					<span class="label-input100">Flat no:</span>
-					<select name="flat" maxlength="3" id="id_flat" class="drop100" >
+					<select name="flat" id="id_flat" maxlength="3"  class="drop100" >
 					<option value="" disabled selected>Flat No</option>	
 					<option value="101">101</option>
 					<option value="102">102</option>
@@ -126,9 +126,9 @@
 					<option value="904">904</option>
 
 					</select>
-				</div>
+			</div>
 
-				<div class="wrap-drop100 ">
+			<div class="wrap-drop100 ">
 					{% if form.request_type.errors %}
 						<ul class="errorlist">
     						<li style="font-size: 10px;color: red;font-style: italic;">Type is required</li>
@@ -144,25 +144,25 @@
 						<option value="CCTV">CCTV</option>
 						<option value="Other">Other</option>
 					</select>
-				</div>
+			</div>
 			<div id="addressproof" class="wrap-input100 ">
 				
 					{% if form.name_to_be_addressed.errors %}
 						<ul class="errorlist">
-    						<li style="font-size: 10px;color: red;font-style: italic;">This field is required.</li>
+    						<li style="font-size: 10px;color: red;font-style: italic;">Name field is required.</li>
 						</ul>
 					{% endif %}
 
 					<span class="label-input100">Name to be Addressed:</span>
-					<input class="input100" type="text" id="id_name_to_be_addressed"name="name_to_be_addressed" placeholder="Enter Name">
+					<input class="input100" type="text" id="id_name_to_be_addressed" name="name_to_be_addressed" placeholder="Enter Name">
 				
 			</div>
 
 			<div id="sales" class="wrap-input100" >
-				
+				<div  class="wrap-input100 ">
 					{% if form.new_members_names.errors %}
 						<ul class="errorlist">
-    						<li style="font-size: 10px;color: red;font-style: italic;">This field is required.</li>
+    						<li style="font-size: 10px;color: red;font-style: italic;">Members field is required.</li>
 						</ul>
 					{% endif %}
 
@@ -170,12 +170,12 @@
 					<input class="input100" type="text" name="new_members_names" id="id_new_members_names" placeholder="Enter Name">
 					<span class="focus-input100"></span>
 				
-
-				<div>
+				</div>
+				<div  class="wrap-input100 ">
 
 					{% if form.sales_details.errors %}
 						<ul class="errorlist">
-    						<li style="font-size: 10px;color: red;font-style: italic;">This field is required.</li>
+    						<li style="font-size: 10px;color: red;font-style: italic;"> Sales Details  field is required.</li>
 						</ul>
 					{% endif %}
 
@@ -188,7 +188,7 @@
 
 					{% if form.bank_format.errors %}
 						<ul class="errorlist">
-    						<li style="font-size: 10px;color: red;font-style: italic;">This Field is required.</li>
+    						<li style="font-size: 10px;color: red;font-style: italic;">Bank Format Field is required.</li>
 						</ul>
 					{% endif %}
 
@@ -202,7 +202,7 @@
 
 					{% if form.cctv_time_from.errors %}
 						<ul class="errorlist">
-    						<li style="font-size: 10px;color: red;font-style: italic;">This field is required.</li>
+    						<li style="font-size: 10px;color: red;font-style: italic;">Time from field is required.</li>
 						</ul>
 					{% endif %}
 
@@ -214,7 +214,7 @@
 
 					{% if form.to_date.errors %}
 						<ul class="errorlist">
-    						<li style="font-size: 10px;color: red;font-style: italic;">This Field is required.</li>
+    						<li style="font-size: 10px;color: red;font-style: italic;">Time to Field is required.</li>
 						</ul>
 					{% endif %}
 
@@ -222,6 +222,18 @@
 					{{form.cctv_time_to}}
 				</div>
 				</div>
+
+			<div class="wrap-input100 ">
+					{% if form.request.errors %}
+						<ul class="errorlist">
+    						<li style="font-size: 10px;color: red;font-style: italic;">Request is required.</li>
+						</ul>
+					{% endif %}
+
+					<span class="label-input100">Request:</span>
+					<textarea class="input100" name="request" placeholder="Enter Request"></textarea>
+					<span class="focus-input100"></span>
+			</div>
 
 				<div class="container-contact100-form-btn">
 				<input type="submit" class="contact100-form-btn" value="Submit"/>
@@ -234,96 +246,7 @@
 
 
 
-<!--<table>
-	<tr>
-		<th>Date Of Issue</th>
-		<th>Flat No</th>
-		<th>Request Description</th>
-		<th>Status</th>
-		
-	</tr>
-	{% for r in table %}
-	<tr>
-		<td>{{r.request_date }}</td>
-		<td>{{r.flatno}}</td>
-		{% if r.request_type == 'SalesAgreement'%}
-		<td>
-			<p>You have made request for <b>Sales Agreement</b> </p>
-			<ul>
-				<li><b>New Member Names:</b>{{r.new_members_names}}</li>
-				<li><b>Details:</b>{{r.sales_details}}</li>
-				<li><b>Format:</b><a href="{{r.bank_format.url}}" class="btn btn-primary btn-sm" target="_blank">Download</a></li>
-				<li><b>Remarks:</b>{{r.request}}</li>
-			</ul>
-		</td>
 
-		{% elif r.request_type == 'AddressProof' %}
-		<td>
-			<p>You have made request for <b>Address Proof</b> </p>
-			<ul>
-				<li><b>Name to be Addressed:</b>{{r.name_to_be_addressed }}</li>
-				<li><b>Remarks:</b>{{r.request}}</li>
-			</ul>
-		</td>
-		{% elif r.request_type == 'CCTV' %}
-		<td>
-			<p>You have made request to view <b>CCTV Footage</b> </p>
-			<ul>
-				<li><b>From:</b>{{r.cctv_time_from }}</li>
-				<li><b>To:</b>{{r.cctv_time_to }}</li>
-				<li><b>Remarks:</b>{{r.request}}</li>
-			</ul>
-		</td>
-		{% elif r.request_type == 'NOC' %}
-		<td>
-			<p>You have made request for <b>NOC</b> </p>
-			<ul>
-				<li><b>Details:</b>{{r.request}}</li>
-			</ul>
-		</td>
-		{% else %}
-		<td>
-			<p><b>Your request:</b>{{r.request}} </p>	
-		</td>
-		{% endif %}
-		<td>
-			{% if r.completed %}
-			<div class="container1">
-     			 <ul class="progressbar">
-          			<li class="active">Request Sent</li>
-          			<li class="active">In Progress</li>
-          			<li class="active">Completed</li>
-          			
- 				 </ul>
-    		</div> 
-    		
-    		{% elif r.inprogress %}
-			<div class="container1">
-     			 <ul class="progressbar">
-          			<li class="active">Request Sent</li>
-          			<li class="active">In Progress</li>
-          			<li>Completed</li>
-          			
- 				 </ul>
-    		</div> 
-    		
-			{% else  %}
-			<div class="container1">
-     			 <ul class="progressbar">
-          			<li class="active">Request Sent</li>
-          			<li>In Progress</li>
-          			<li>Completed</li>
-          			
- 				 </ul>
-    		</div> 
-    		{% endif %}
-		</td>
-
-	</tr>
-
-	{% endfor %}
-
-</table>-->
 
 <br>
 <hr class="style-two">
@@ -331,7 +254,7 @@
 
 {% for r in table %}
 	<br>
-	<div class="tablerow" id="contain" style="background-color: #ffffff;z-index: 1; position: relative;margin-left: 5%;margin-bottom: 15px;">
+	<div class="tablerow" id="contain" style="background-color: #ffffff;z-index: 1; position: relative;margin-left: 5%;margin-bottom: 15px;font-size: 14px;margin-left: 10%;">
 	
 		<div class ="flatcolumn pull-left" id="left">
 			<div class=" flatno" ><span class="step">{{r.flatno}}</span></div>
