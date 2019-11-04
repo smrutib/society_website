@@ -179,7 +179,7 @@ iframe {
   overflow: hidden;
   position: relative;
   border:1px solid #18d26e;
-  margin-left: 60px;
+  margin-left: 20%;
   margin-bottom: 30px;
 }
 
@@ -433,6 +433,11 @@ textarea.input100 {
   .contact100-form {
     padding: 43px 15px 57px 117px;
   }
+
+  .wrap-contact100{
+
+    margin-left: 10%
+  }
 }
 
 @media (max-width: 480px) {
@@ -449,6 +454,12 @@ textarea.input100 {
     padding: 0 5px;
 
   }
+
+.wrap-contact100{
+
+    margin-left: 5%
+  }
+
 }
 
 

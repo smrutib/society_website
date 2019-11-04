@@ -31,8 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
+    
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -43,6 +42,8 @@ INSTALLED_APPS = [
     'bootstrap4',
     'home.apps.LoginRegisterConfig',
     'crispy_forms',
+    'django.contrib.admin',
+    'django.contrib.auth',
     ]
 
 MIDDLEWARE =[
@@ -141,5 +142,15 @@ AUTH_USER_MODEL = 'home.CustomUser'
 
 LOGIN_REDIRECT_URL = 'login_success'
 #LOGIN_REDIRECT_URL = '/member/'
-LOGOUT_REDIRECT_URL = '/home/test'
+LOGOUT_REDIRECT_URL = '/'
 
+
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'prsvalentineapt@gmail.com'
+EMAIL_HOST_PASSWORD = 'valentine@12345'

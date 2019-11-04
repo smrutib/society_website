@@ -12,6 +12,11 @@ from commitee.models import announcement
 def home(request):
 	return render(request,"home/homepage.html")
 
+def base(request):
+	
+	return render(request,"registration/base.html")
+
+
 def visitors(request):
 	if request.method == 'POST':
 		form=forms.visitorsform(request.POST)
@@ -59,7 +64,7 @@ def login_success(request):
 	elif rights == "Admin" :
 		return redirect("/commitee/admin")
 	else:
-		return redirect("/member/")
+		return redirect("/member/complaint")
 
 
 def test(request):
