@@ -46,9 +46,10 @@
 
 </head>
 
-<body>	
-
-	<div class="wrap-contact100" >
+<body >	
+	<br>
+	<br>
+	<div class="wrap-contact100" style="margin-left: 20%;" >
 			<div class="contact100-form-title" style="background-image: url({% static 'form/images/bg-01.jpg' %});">
 				<span class="contact100-form-title-1">
 					Request
@@ -135,7 +136,7 @@
 					{% endif %}
 
 					<span class="label-input100">Request type:</span>
-					<select id="request" class="drop100" name="requesttype" >
+					<select id="id_request_type" class="drop100" name="request_type" >
 						<option value="" disabled selected>Request type</option>	
 						<option value="NOC">NOC</option>
 						<option value="AddressProof">AddressProof(Passport)</option>
@@ -144,8 +145,8 @@
 						<option value="Other">Other</option>
 					</select>
 				</div>
-				<div id="addressproof">
-				<div class="wrap-input100 ">
+			<div id="addressproof" class="wrap-input100 ">
+				
 					{% if form.name_to_be_addressed.errors %}
 						<ul class="errorlist">
     						<li style="font-size: 10px;color: red;font-style: italic;">This field is required.</li>
@@ -153,13 +154,12 @@
 					{% endif %}
 
 					<span class="label-input100">Name to be Addressed:</span>
-					<input class="input100" type="text" name="name" placeholder="Enter Name">
-					<span class="focus-input100"></span>
-				</div>
+					<input class="input100" type="text" id="id_name_to_be_addressed"name="name_to_be_addressed" placeholder="Enter Name">
+				
 			</div>
 
-				<div id="sales">
-				<div class="wrap-input100 " >
+			<div id="sales" class="wrap-input100" >
+				
 					{% if form.new_members_names.errors %}
 						<ul class="errorlist">
     						<li style="font-size: 10px;color: red;font-style: italic;">This field is required.</li>
@@ -167,9 +167,9 @@
 					{% endif %}
 
 					<span class="label-input100">New Members Names:</span>
-					<input class="input100" type="text" name="name" placeholder="Enter Name">
+					<input class="input100" type="text" name="new_members_names" id="id_new_members_names" placeholder="Enter Name">
 					<span class="focus-input100"></span>
-				</div>
+				
 
 				<div>
 
@@ -180,7 +180,7 @@
 					{% endif %}
 
 					<span class="label-input100">Sales Details:</span>
-					<input class="input100" type="text" name="name" placeholder="Enter details">
+					<input class="input100" type="text" name="sales_details" id="id_sales_details" placeholder="Enter details">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -195,7 +195,7 @@
 					<span class="label-input100">Upload Bank Format:</span>
 					{{form.bank_format}}
 					</div>
-				</div>
+			</div>
 
 				<div id="cctv">
 					<div class="wrap-drop100 ">
@@ -325,9 +325,12 @@
 
 </table>-->
 
+<br>
+<hr class="style-two">
+<br>
 
 {% for r in table %}
-
+	<br>
 	<div class="tablerow" id="contain" style="background-color: #ffffff;z-index: 1; position: relative;margin-left: 5%;margin-bottom: 15px;">
 	
 		<div class ="flatcolumn pull-left" id="left">

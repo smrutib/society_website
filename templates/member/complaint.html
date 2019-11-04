@@ -35,8 +35,9 @@
 </head>
 
 <body>	
-
-	<div class="wrap-contact100" >
+	<br>
+	<br>
+	<div class="wrap-contact100" style="margin-left: 20%;">
 			<div class="contact100-form-title" style="background-image: url({% static 'form/images/bg-01.jpg' %});">
 				<span class="contact100-form-title-1">
 					Complaint
@@ -152,7 +153,7 @@
 						</ul>
 					{% endif %}
 
-					<span class="label-input100">Police Verification Docs:</span>
+					<span class="label-input100">Upload Image:</span>
 					{{form.complain_img}}
 				</div>
 
@@ -161,9 +162,10 @@
 				</div>
 
 		
-	</form>
-
-<h1>Your Complaints</h1>
+</form>
+</div>
+<hr class="style-two"><br>
+<h1 align="center">Your Complaints</h1><br>
 
 <!--<table>
 
@@ -200,15 +202,15 @@
 
 {% for c in complaints %}
 
-	<div class="tablerow" id="contain">
+	<div class="tablerow" id="contain" style="margin-left: 10%">
 	
 		<div class ="flatcolumn pull-left" id="left">
 			<div class=" flatno" ><span class="step">{{c.flatno}}</span></div>
 		</div>
 
 		<div class="details" id="center">
-			
-			<p class="destitle">You have made complaint on<b><font color=#18d26e>{{c.complaint_type}}</font></b> </p>
+			<br>
+			<p class="destitle">You have made complaint on &nbsp<b><font color=#18d26e>{{c.complaint_type}}</font></b> </p>
 			<p>{{c.description}}</p>
 			{% if c.complain_img %}
 			<img src="{{ c.complain_img.url }}" alt="No Image" style="width:90px;">
@@ -221,6 +223,7 @@
 
 		<div class="date" id="right">
 			<div>
+				<br>
 			<p class="text">Date of Issue</p>
 			<i class="fa fa-calendar" aria-hidden="true"></i>
 			<p>{{c.complaint_date }}</p>
