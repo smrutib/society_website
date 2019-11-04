@@ -59,7 +59,7 @@ def login_success(request):
 	elif rights == "Admin" :
 		return redirect("/commitee/admin")
 	else:
-		return redirect("/member/")
+		return redirect("/member/complaint")
 
 
 def test(request):
