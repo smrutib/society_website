@@ -38,12 +38,12 @@ class SignUpView(CreateView):
 	success_url = reverse_lazy('login')
 	template_name = 'home/signup.html'
 
-	def form_valid(self,form):
-		s=form.cleaned_data['wing']
-		t=form.cleaned_data['flat']
+	def form_valid(self,form_class):
+		s=form_class.cleaned_data['wing']
+		t=form_class.cleaned_data['flat']
 		st=s+t
-		form.instance.flat_no=st
-		return super().form_valid(form)
+		form_class.instance.flat_no=st
+		return super().form_valid(form_class)
 
 def quotation_upload(request):
 	if request.method == 'POST':
