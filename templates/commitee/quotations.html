@@ -25,7 +25,8 @@
 		<td>{{a.telephone}}</td>
 		<td>{{a.email}}</td>
 		<td>{{a.description}}</td>
-		<td>{{a.pdf}}</td>
+		
+		<td><button  class ="btn btn-primary" onclick="window.location.href = '{{a.pdf.url}}';"></i>Download</button></td>
 		
 	</tr>
 	{% endfor %}
